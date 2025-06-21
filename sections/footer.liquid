@@ -18,7 +18,7 @@
   <div class="container">
     <div
       id="footer-mobile" 
-      class="d-desktop-none">
+      class="d-lg-none">
       <div class="mb-8" role="list">
         {% for block in section.blocks %}
           <div class="collapse-wrapper" role="listitem" {{ block.shopify_attributes }}>
@@ -44,7 +44,7 @@
     </div>
     <div 
       id="footer-desktop" 
-      class="d-none d-desktop-block">
+      class="d-none d-lg-block">
       <div class="row" role="list">
         {% for block in section.blocks %}
           <div class="footer-block col" role="listitem" {{ block.shopify_attributes }}>
@@ -64,14 +64,14 @@
       id="footer-copyright" 
       class="">
       <div class="row align-items-center">
-        <div class="col-desktop-5">
+        <div class="col-lg-5">
           {% if section.settings.social_icons %}
             <div class="social-icons-wrapper text-center text-desktop-start mb-5 mb-desktop-0">
               {% render 'social-icons', icon_size: 18, show_title: false %}
             </div>
           {% endif %}
         </div>
-        <div class="col-desktop-8">
+        <div class="col-lg-8">
           <div class="fs-sm text-center">
             &copy; {{ 'now' | date: "%Y" }} {{ shop.name | replace: ' (', '<span hidden>' | replace: ')', '</span>' }}.
             {% if section.settings.show_powered_by %}
@@ -80,7 +80,7 @@
             {% endif %}
           </div>
         </div>
-        <div class="col-desktop-5">
+        <div class="col-lg-5">
           {% if section.settings.show_payment_icons %}
             <div class="payment-icons-wrapper text-center text-desktop-end mt-5 mt-desktop-0">
               {% render 'payment-icons' %}

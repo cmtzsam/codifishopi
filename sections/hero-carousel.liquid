@@ -49,7 +49,7 @@
               --overlay-opacity: {{ block.settings.overlay_opacity | append: '%' }};
               --overlay-blur: {{ block.settings.overlay_blur | append: 'px' }}">
             {% if block.settings.img_mobile != blank or block.settings.img_desktop != blank %}
-              <div class="d-tablet-none">
+              <div class="d-m-none">
                 <img 
                   class="carousel-media"
                   src="{{ block.settings.img_mobile | image_url: width: '800', crop: 'center' }}" 
@@ -59,7 +59,7 @@
                   loading="{{ media_loading }}"
                   style="{{ media_mobile_height }}">
               </div>
-              <div class="d-none d-tablet-block">
+              <div class="d-none d-m-block">
                 <img 
                   class="carousel-media"
                   src="{{ block.settings.img_desktop | image_url: width: '1600', crop: 'center' }}" 
@@ -134,7 +134,7 @@
       </div>
     {% endif %}
     {% if section.blocks.size > 1 and section.settings.carousel_controls %}
-      <div class="d-none d-tablet-block">
+      <div class="d-none d-m-block">
         <button 
           class="carousel-control carousel-control-prev" 
           type="button" 

@@ -17,7 +17,7 @@
     {% if block.type == 'mobile' %}
       <nav 
         id="navbar-mobile" 
-        class="navbar d-desktop-none p-0"
+        class="navbar d-lg-none p-0"
         {{ block.shopify_attributes }}>
         <div 
           class="container d-block {{ block.settings.pt | prepend: 'pt-' }} {{  block.settings.pb | prepend: 'pb-' }}"
@@ -87,7 +87,7 @@
     {% else %}
       <nav 
         id="navbar-desktop" 
-        class="navbar d-none d-desktop-block p-0"
+        class="navbar d-none d-lg-block p-0"
         {{ block.shopify_attributes }}>
         <div 
           class="container d-block {{ block.settings.pt | prepend: 'pt-' }} {{  block.settings.pb | prepend: 'pb-' }}"
