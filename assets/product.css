@@ -571,6 +571,11 @@ body .jdgm-form textarea:focus {
   box-shadow: var(--bs-focus-box-shadow);
 }
 
+body .jdgm-form input::-moz-placeholder, body .jdgm-form textarea::-moz-placeholder {
+  color: rgba(var(--bs-body-color-rgb), .75);
+  opacity: 1;
+}
+
 body .jdgm-form input::placeholder,
 body .jdgm-form textarea::placeholder {
   color: rgba(var(--bs-body-color-rgb), .75);
@@ -645,7 +650,8 @@ body .jdgm-paginate__page.jdgm-curt {
 */
 body.glightbox-mobile .goverlay {
   background-color: rgba(var(--bs-black-rgb), .5);
-  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+          backdrop-filter: blur(0.5rem);
 }
 
 body .gslide-media {
@@ -655,7 +661,8 @@ body .gslide-media {
 @media ((min-width: 769px)) {
   body .goverlay {
     background-color: rgba(var(--bs-black-rgb), .5);
-    backdrop-filter: blur(0.5rem);
+    -webkit-backdrop-filter: blur(0.5rem);
+            backdrop-filter: blur(0.5rem);
   }
   body .glightbox-clean .gslide-media {
     box-shadow: none;

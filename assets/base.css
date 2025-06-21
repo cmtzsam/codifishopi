@@ -764,7 +764,8 @@ hr {
 .modal-backdrop,
 .offcanvas-backdrop {
   background-color: rgba(var(--bs-dialog-backdrop-color-rgb), var(--bs-dialog-backdrop-opacity));
-  backdrop-filter: blur(var(--bs-dialog-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--bs-dialog-backdrop-blur));
+          backdrop-filter: blur(var(--bs-dialog-backdrop-blur));
 }
 
 .modal-backdrop.show,
@@ -1518,7 +1519,9 @@ ul.social-icons a:active {
   padding-left: 2rem;
   padding-right: 2rem;
   width: 7rem;
-  appearance: textfield;
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
 }
 
 .qty-input-wrapper .form-control-sm {

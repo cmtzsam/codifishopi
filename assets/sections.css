@@ -121,7 +121,8 @@ body #footer-group::after  {
   height: 100%;
   z-index: 999;
   background-color: rgba(var(--bs-dialog-backdrop-color-rgb), var(--bs-dialog-backdrop-opacity));
-  backdrop-filter: blur(var(--bs-dialog-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--bs-dialog-backdrop-blur));
+          backdrop-filter: blur(var(--bs-dialog-backdrop-blur));
 } 
 
 body.navbar-dropdown-open #main,
@@ -189,7 +190,8 @@ body.navbar-dropdown-open #footer-group::after {
 .hero-carousel .media-wrapper video {
   display: flex;
   width: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   max-height: 100vh;
 }
 
@@ -250,7 +252,8 @@ body.navbar-dropdown-open #footer-group::after {
   height: 100%;
   left: 0;
   top: 0;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .image-overlay .img-wrapper {
@@ -265,7 +268,8 @@ body.navbar-dropdown-open #footer-group::after {
   top: 0;
   left: 0;
   background-color: rgba(var(--overlay-color-rgb, 0, 0, 0), var(--overlay-opacity, 0.7));
-  backdrop-filter: blur(var(--overlay-blur, 0));
+  -webkit-backdrop-filter: blur(var(--overlay-blur, 0));
+          backdrop-filter: blur(var(--overlay-blur, 0));
 }
 
 .image-overlay .title {
@@ -313,7 +317,8 @@ body.navbar-dropdown-open #footer-group::after {
 
 .media-with-text video {
   position: absolute;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 
