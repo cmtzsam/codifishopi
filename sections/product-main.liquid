@@ -12,7 +12,7 @@
     {{ section.settings.border_top_width | prepend: 'border-top-' }}
     {{ section.settings.border_bottom_width | prepend: 'border-bottom-' }}
     {{ section.settings.border_color }} 
-    {{ section.settings.pt | prepend: 'pt-0 pt-tablet-' }}
+    {{ section.settings.pt | prepend: 'pt-0 pt-md-' }}
     {{ section.settings.pb | prepend: 'pb-' }}
   "
   style="
@@ -31,10 +31,10 @@
         {{ 'general.accessibility.skip_product_content' | t }}
       </a>      
       <div class="row">
-        <div class="col-lg-9 mb-5 mb-desktop-0">
+        <div class="col-12 col-md-6 col-lg-6">
           {% render 'product-block-media-gallery' %}
         </div>
-        <div class="col-lg-9">
+        <div class="col-12 col-md-6 col-lg-6">
           <div id="product-inner-{{ product.id }}">
             <product-form>
               {% form 'product', product, data-productid: product.id, data-variants: variants_json %}

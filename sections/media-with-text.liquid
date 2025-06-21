@@ -23,8 +23,8 @@
       <div 
         class="container" 
         style="max-width: {{ section.settings.container_max_width | append: 'px' }};">
-        <div class="row align-items-desktop-center {{ block.settings.media_align_desktop }}">
-          <div class="col-lg-9 mb-6 mb-desktop-0">
+        <div class="row align-items-lg-center {{ block.settings.media_align_desktop }}">
+          <div class="col-lg-9 mb-6 mb-lg-0">
             {% if block.settings.external_video != blank %}
               {% liquid 
                 if block.settings.external_video.type == 'youtube'
@@ -62,7 +62,7 @@
               {{ 'image' | placeholder_svg_tag: 'img-thumbnail' }}
             {% endif %}
           </div>
-          <div class="col-lg-9 mb-4 mb-desktop-0">
+          <div class="col-lg-9 mb-4 mb-lg-0">
             <div class="{{ block.settings.text_align_mobile }} {{ block.settings.text_align_desktop }}">
               {% unless block.settings.subtitle == blank %}
                 <div class="subtitle mb-2">
@@ -227,7 +227,7 @@
           "default": "",
           "options": [
             { "value": "", "label": "Left" },
-            { "value": "flex-desktop-row-reverse", "label": "Right" }
+            { "value": "flex-lg-row-reverse", "label": "Right" }
           ]
         },
         {
@@ -347,11 +347,11 @@
           "type": "select",
           "id": "text_align_desktop",
           "label": "Text align - desktop",
-          "default": "text-desktop-start",
+          "default": "text-lg-start",
           "options": [
-            { "value": "text-desktop-start", "label": "Left" },
-            { "value": "text-desktop-center", "label": "Center" },
-            { "value": "text-desktop-end", "label": "Right" }
+            { "value": "text-lg-start", "label": "Left" },
+            { "value": "text-lg-center", "label": "Center" },
+            { "value": "text-lg-end", "label": "Right" }
           ]
         },
         {

@@ -20,7 +20,7 @@
     style="max-width: {{ section.settings.container_max_width }}px">
     <div class="row align-items-center">
       {% if section.settings.img != nil %}
-        <div class="col-lg-7 mb-6 mb-desktop-0">
+        <div class="col-lg-7 mb-6 mb-lg-0">
           {% render 'image-url', img: section.settings.img, size: 900, orientation: section.settings.img_orientation, class: section.settings.img_border %}
         </div>
       {% endif %}

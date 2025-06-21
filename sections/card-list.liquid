@@ -21,14 +21,14 @@
     {% render 'section-header' %}
     <div 
       class="
-        m-n4 m-desktop-n5 align-items-desktop-center row
+        m-n4 m-lg-n5 align-items-lg-center row
         {{ section.settings.breakpoint_mobile | prepend: 'row-cols-' }}
-        {{ section.settings.breakpoint_tablet | prepend: 'row-cols-tablet-' }}
-        {{ section.settings.breakpoint_desktop | prepend: 'row-cols-desktop-' }}
+        {{ section.settings.breakpoint_tablet | prepend: 'row-cols-md-' }}
+        {{ section.settings.breakpoint_desktop | prepend: 'row-cols-lg-' }}
       ">
       {% for block in section.blocks %}
         <div 
-          class="p-4 p-desktop-5"
+          class="p-4 p-lg-5"
           {{ block.shopify_attributes }}>
           <div 
             class="

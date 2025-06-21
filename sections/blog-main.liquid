@@ -54,14 +54,14 @@
         </div>
         <div 
           class="
-            article-list mx-n3 mx-desktop-n4 mb-0 row 
+            article-list mx-n3 mx-lg-n4 mb-0 row 
             {{ section.settings.breakpoint_mobile | prepend: 'row-cols-' }}
-            {{ section.settings.breakpoint_tablet | prepend: 'row-cols-tablet-' }}
-            {{ section.settings.breakpoint_desktop | prepend: 'row-cols-desktop-' }}
+            {{ section.settings.breakpoint_tablet | prepend: 'row-cols-md-' }}
+            {{ section.settings.breakpoint_desktop | prepend: 'row-cols-lg-' }}
           "
           role="list">
           {% for article in blog.articles %}
-            <div class="p-3 p-desktop-4 mb-3 mb-desktop-4" role="list-item">
+            <div class="p-3 p-lg-4 mb-3 mb-lg-4" role="list-item">
               {% render 'article-card', article: article %}
             </div>
           {% endfor %}

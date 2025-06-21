@@ -28,11 +28,11 @@
     class="container"
     style="max-width: {{ section.settings.container_max_width | append: 'px' }};">
     {% render 'section-header' %}
-    <div class="swiper mx-n4 mx-desktop-n5 mt-n3 mt-desktop-n5">
+    <div class="swiper mx-n4 mx-lg-n5 mt-n3 mt-lg-n5">
       <div class="swiper-wrapper">
         {% for block in section.blocks %}
           <div
-            class="swiper-slide p-4 p-desktop-5"
+            class="swiper-slide p-4 p-lg-5"
             {{ block.shopify_attributes }}>
             <div 
               class="
