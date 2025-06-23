@@ -1,66 +1,97 @@
-<footer class="main">
-    <section class="section-padding footer-mid">
-        <div class="container pt-15 pb-20">
-            <div class="row">
-                <div class="col-12 col-lg-3">
-                    <div class="widget-about font-md mb-md-3 mb-lg-3 mb-xl-0">
-                        <div class="logo pt-4">
-                            <a 
-                            class="mb-15" 
-                            href="{{ routes.root_url }}">
-                            <img src="https://cdn.shopify.com/s/files/1/0763/2545/4045/files/Recurso_4222.png?v=1750710221" alt="logo" width="200" height="45" style="width: auto; height: auto; max-width: 200px" />
-                            </a>
-                            {% comment %} <p class="font-lg text-heading">Awesome grocery store website template</p> {% endcomment %}
-                        </div>
-                    </div>
-                </div>
-                {% for block in section.blocks %}
-                <div class="footer-link-widget col" role="listitem" {{ block.shopify_attributes }}>
-                    <h4 class="widget-title {{ block.settings.title_font_size }}">
-                    <span>
-                        {{ block.settings.title }}
-                    </span>
-                    </h4>
-                    {% render 'footer-block', block: block %}
-                </div>
-                {% endfor %}
-                {% if section.settings.show_payment_icons %}
-                    <div class="footer-link-widget col-12 col-lg-2 paymentstxt">
-                        <h4 class="widget-title fs-xl" style="white-space: nowrap;">
-                          Payment Methods
-                        </h4>
-                        <img class="wow fadeIn animated" src="https://cdn.shopify.com/s/files/1/0763/2545/4045/files/payment-method.png?v=1750716789" alt="Secured Payment Gateways" />
-                    </div>
-                {% endif %}                        
+<footer 
+  id="footer" 
+  class="
+    small 
+    {{ section.settings.bg_color }} 
+    {{ section.settings.bg_gradient }}
+    {{ section.settings.text_color }} 
+    {{ section.settings.border_top_width | prepend: 'border-top-' }}
+    {{ section.settings.border_bottom_width | prepend: 'border-bottom-' }}
+    {{ section.settings.border_color }} 
+    {{ section.settings.pt | prepend: 'pt-' }} 
+    {{ section.settings.pb | prepend: 'pb-' }}
+    "
+  style="
+    --bs-bg-opacity: {{ section.settings.bg_opacity | append: '%' }};
+    --bs-border-opacity: {{ section.settings.border_opacity | append: '%' }};
+  ">
+  <div class="container">
+    <div
+      id="footer-mobile" 
+      class="d-lg-none">
+      <div class="mb-8" role="list">
+        {% for block in section.blocks %}
+          <div class="collapse-wrapper" role="listitem" {{ block.shopify_attributes }}>
+            <button
+              id="footer-sm-collapse-btn-{{ forloop.index }}" 
+              class="heading {{ block.settings.title_font_size }}" 
+              type="button" 
+              data-bs-toggle="collapse" 
+              data-bs-target="#footer-sm-collapse-{{ forloop.index }}" 
+              aria-expanded="false" 
+              aria-controls="footer-sm-collapse-{{ forloop.index }}">
+              {{ block.settings.title }}
+              {% render 'svg-icons', icon: 'chevron-down', size: 18 %}
+            </button>
+            <div id="footer-sm-collapse-{{ forloop.index }}" class="collapse">
+              <div class="collapse-inner">
+                {% render 'footer-block', block: block %}
+              </div>
             </div>
-        </div>
-    </section>
-    <div class="container pb-30">
-        <div class="row align-items-center justify-content-between">
-            <div class="col-12 mb-30">
-                <div class="footer-bottom"></div>
-            </div>
-            <div class="col-xl-4 col-lg-6 col-md-6">
-                <p class="font-sm mb-0">
-                    &copy; {{ 'now' | date: "%Y" }} {{ shop.name | replace: ' (', '<span hidden>' | replace: ')', '</span>' }}.
-                </p>
-            </div>
-            {% if section.settings.social_icons %}
-            <div class="col-xl-4 col-lg-6 col-md-6 text-end d-none d-md-block">
-                <div class="mobile-social-icon">
-                    <h6>Follow Us</h6>
-                    {% render 'social-icons', icon_size: 18, show_title: false %}
-                </div>
-                <p class="font-sm">Up to 15% discount on your first subscribe</p>
-            </div>
-            {% endif %}
-        </div>
+          </div>
+        {% endfor %}
+      </div>
     </div>
+    <div 
+      id="footer-desktop" 
+      class="d-none d-lg-block">
+      <div class="row" role="list">
+        {% for block in section.blocks %}
+          <div class="footer-block col" role="listitem" {{ block.shopify_attributes }}>
+            <h3 class="title {{ block.settings.title_font_size }}">
+              <span>
+                {{ block.settings.title }}
+              </span>
+            </h3>
+            {% render 'footer-block', block: block %}
+          </div>
+        {% endfor %}
+      </div>
+      <hr class="my-8">
+    </div>
+
+    <div 
+      id="footer-copyright" 
+      class="">
+      <div class="row align-items-center">
+        <div class="col-lg-5">
+          {% if section.settings.social_icons %}
+            <div class="social-icons-wrapper text-center text-lg-start mb-5 mb-lg-0">
+              {% render 'social-icons', icon_size: 18, show_title: false %}
+            </div>
+          {% endif %}
+        </div>
+        <div class="col-lg-8">
+          <div class="fs-sm text-center">
+            &copy; {{ 'now' | date: "%Y" }} {{ shop.name | replace: ' (', '<span hidden>' | replace: ')', '</span>' }}.
+          </div>
+        </div>
+        <div class="col-lg-5">
+          {% if section.settings.show_payment_icons %}
+            <div class="payment-icons-wrapper text-center text-lg-end mt-5 mt-lg-0">
+              {% render 'payment-icons' %}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    
+  </div>
 </footer>
 
 {% schema %}
 {
-  "name": "Footer",
+  "name": "Footer BUP",
   "limit": 1,
   "settings": [
     {
@@ -325,7 +356,7 @@
   ],
   "presets": [
     {
-      "name": "Footer"
+      "name": "Footer BUP"
     }
   ]
 }

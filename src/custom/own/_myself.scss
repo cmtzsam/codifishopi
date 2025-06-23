@@ -6,3 +6,38 @@
 .bg-color-brand-dark{
   background-color: $color-brand-dark !important;
 }
+
+footer{
+  .paymentstxt{
+    margin: 50px 0 0;
+    @media (min-width: 979px) {
+      text-align: right;
+      margin: 0;
+    }
+  }
+  .logo{
+    @media (max-width: 580px) {
+      text-align: center;
+    }
+  }
+  .social-icons {
+    gap: 0 8px;
+    li a{
+      padding: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: $color-brand;
+      &:active,
+      &:focus,
+      &:hover{
+        background-color: $color-brand-dark;
+      }
+      svg, g{
+        fill: white;
+        stroke: white;
+      }
+    }
+  }
+}
