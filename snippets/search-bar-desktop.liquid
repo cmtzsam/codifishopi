@@ -1,0 +1,31 @@
+<div class="header-style-1 w-100 d-flex justify-content-center" >
+  <div class="search-style-2 w-100 d-flex justify-content-center">
+    <form action="{{ routes.search_url }}"  method="get" role="search" class="w-100">
+      <input name="options[prefix]" type="hidden" value="last">
+      <div class="form-control-wrapper w-100">
+        <input
+          
+          type="search"
+          name="q"
+          value="{{ search.terms | escape }}"
+          role="combobox"
+          aria-expanded="false"
+          aria-owns="predictive-search-results"
+          aria-controls="predictive-search-results"
+          aria-haspopup="listbox"
+          aria-autocomplete="list"
+          aria-label="{{ 'general.search.input_label' | t }}"
+          placeholder="{{ 'general.search.input_label' | t }}"
+          autocorrect="off" 
+          autocomplete="off" 
+          autocapitalize="off"
+          spellcheck="false">
+        <button type="submit" class="btn btn-link" aria-label="{{ 'general.search.btn_label' | t }}">
+          {% render 'svg-icons', icon: 'search', size: 20, class: '' %}
+        </button>
+      </div>
+      <div id="predictive-search" tabindex="-1"></div>
+      <span id="predictive-search-status" class="visually-hidden" role="status"></span>
+    </form>
+  </div>
+</div>

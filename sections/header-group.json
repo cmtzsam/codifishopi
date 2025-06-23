@@ -17,13 +17,13 @@
         "slide_j46kwk": {
           "type": "slide",
           "settings": {
-            "announcement": "Announce something important here"
+            "announcement": "¡Envíos gratis a partir de $800 MXN!"
           }
         },
         "slide_mwF4Tk": {
           "type": "slide",
           "settings": {
-            "announcement": "Free Shipping For All Orders Over $100"
+            "announcement": "15% descuento en la primera compra: codificards_1ero"
           }
         }
       },
@@ -32,7 +32,7 @@
         "slide_mwF4Tk"
       ],
       "settings": {
-        "bg_color": "bg-primary",
+        "bg_color": "bg-color-brand-dark",
         "bg_opacity": 100,
         "bg_gradient": "bg-gradient",
         "text_color": "text-white",
@@ -58,9 +58,10 @@
           "type": "mobile",
           "settings": {
             "container_max_width": "",
+            "logo": "shopify://shop_images/Recurso_4222.png",
             "logo_height": 30,
-            "main_menu": "",
-            "collections_menu": "",
+            "main_menu": "main-menu",
+            "collections_menu": "main-menu",
             "social_icons": true,
             "pt": 2,
             "pb": 2
@@ -70,6 +71,7 @@
           "type": "desktop",
           "settings": {
             "container_max_width": "",
+            "logo": "shopify://shop_images/Recurso_4222.png",
             "logo_height": 32,
             "main_menu": "main-menu",
             "pt": 5,

@@ -1,0 +1,50 @@
+<div class="header-top d-none d-lg-block">
+  <div class="container w-100" style="overflow-x: hidden;">
+      <div class="d-flex">
+          <div class="w-100 mw-50">
+              <div class="header-info">
+                  <ul>
+                      {% comment %} <li><a href="page-about.htlm">Mis pedidos</a></li> {% endcomment %}
+                      <li><a href="shop-order.html">Facturación</a></li>
+                      <li><a href="shop-order.html">Blog</a></li>
+                      <li><a href="shop-order.html">Nosotros</a></li>
+                      <li><a href="shop-order.html">Contacto</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="w-100 mw-50">
+              <div class="header-info header-info-right">
+                  <ul>
+                      <li>
+                        ¿Necesitas ayuda?: 
+                        <a href="#!" class="text-brand fw-bold">&nbsp; <u>+52 812 3250 803</u></a>
+                    </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="header-middle d-none d-lg-block">
+    <div class="container">
+        <div class="header-wrap">
+            <div class="logo d-flex w-100">
+                <a href="index.html" class="d-flex w-100">
+                  <img src="https://cdn.shopify.com/s/files/1/0763/2545/4045/files/Recurso_4222.png?v=1750710221" alt="logo" width="280" height="45" style="width: auto; height: auto; max-width: 280px" />
+                </a>
+            </div>
+
+            <div class="header-search-bar-desk w-100 d-flex justify-content-center">
+                {% unless template == 'search' %}
+                    {% render 'search-bar-desktop', block: block %}
+                {% endunless %}
+            </div>
+
+            <div class="header-right d-flex justify-content-end">
+                <div class="header-action-right">
+                  {% render 'navbar-desktop-icons', block: block %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

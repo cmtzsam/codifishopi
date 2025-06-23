@@ -1,4 +1,20 @@
 <ul class="nav-lg-icons nav justify-content-end flex-nowrap">
+  {% if settings.search %}
+    <li class="nav-item">
+      <a
+        class="nav-link nav-link-icon" 
+        href="#offcanvas-search" 
+        data-bs-toggle="offcanvas"
+        aria-controls="offcanvas-search" 
+        aria-label="{{ 'general.accessibility.search' | t }}"
+        role="button">
+        {% render 'svg-icons', icon: 'search', size: 20 %}
+        <span>
+          &nbsp;Buscar
+        </span>
+      </a>
+    </li>
+  {% endif %}  
   {% if localization.available_countries.size > 1 %}
     <li class="nav-item me-1">
       <a
@@ -20,19 +36,9 @@
         href="{{ routes.account_url }}"
         aria-label="{{ 'general.accessibility.account' | t }}">
         {% render 'svg-icons', icon: 'account', size: 20 %}
-      </a>
-    </li>
-  {% endif %}
-  {% if settings.search %}
-    <li class="nav-item">
-      <a
-        class="nav-link nav-link-icon" 
-        href="#offcanvas-search" 
-        data-bs-toggle="offcanvas"
-        aria-controls="offcanvas-search" 
-        aria-label="{{ 'general.accessibility.search' | t }}"
-        role="button">
-        {% render 'svg-icons', icon: 'search', size: 20 %}
+        <span>
+          &nbsp;Mi cuenta
+        </span>
       </a>
     </li>
   {% endif %}
@@ -46,6 +52,9 @@
       role="button">
       {% render 'svg-icons', icon: 'cart', size: 20 %}
       {% render 'cart-count-badge' %}
+      <span>
+        &nbsp;Carrito
+      </span>
     </a>
   </li>
 </ul>

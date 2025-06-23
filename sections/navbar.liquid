@@ -23,7 +23,7 @@
           class="container d-block {{ block.settings.pt | prepend: 'pt-' }} {{  block.settings.pb | prepend: 'pb-' }}"
           style="max-width: {{ block.settings.container_max_width | append: 'px' }};">
           <div class="row align-items-center">
-            <div class="col-5">
+            <div class="col-3">
               <ul class="nav flex-nowrap">
                 <li class="nav-item">
                   <a 
@@ -49,10 +49,10 @@
                 {% endif %}
               </ul>
             </div>
-            <div class="col-8 text-center">
+            <div class="col-6 d-flex justify-content-center">
               {% render 'navbar-logo', block: block %}
             </div>
-            <div class="col-5">
+            <div class="col-3">
               <ul class="nav flex-nowrap justify-content-end">
                 {% if settings.search %}
                   <li class="nav-item">
@@ -85,23 +85,18 @@
         </div> 
       </nav>
     {% else %}
+      {% render 'header-desktop', block: block %}
       <nav 
         id="navbar-desktop" 
-        class="navbar d-none d-lg-block p-0"
+        class="navbar d-none d-lg-block"
         {{ block.shopify_attributes }}>
         <div 
           class="container d-block {{ block.settings.pt | prepend: 'pt-' }} {{  block.settings.pb | prepend: 'pb-' }}"
           style="max-width: {{ block.settings.container_max_width | append: 'px' }};">
           <div
             class="row align-items-center flex-grow-1">
-            <div class="col-3">
-              {% render 'navbar-logo', block: block %}
-            </div>
-            <div class="col-6">
+            <div class="col-12">
               {% render 'navbar-desktop-menu', block: block %}
-            </div>
-            <div class="col-3">
-              {% render 'navbar-desktop-icons', block: block %}
             </div>
           </div>
         </div>

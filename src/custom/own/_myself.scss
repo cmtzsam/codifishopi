@@ -1,0 +1,8 @@
+@use '../tema/abstracts/_variables.scss' as *;
+
+.bg-color-brand{
+  background-color: $color-brand !important;
+}
+.bg-color-brand-dark{
+  background-color: $color-brand-dark !important;
+}
