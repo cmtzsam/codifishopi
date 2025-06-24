@@ -1,4 +1,39 @@
-<header 
+<div class="page-header mt-30 mb-50">
+  <div class="container">
+    <div 
+      class="archive-header" 
+      style="background-image: url(https://placehold.co/1920x470);"
+    >
+      <div class="row align-items-center">
+        <div class="col-xl-4">
+          <h1 class="mb-15">{{ collection.title }}</h1>
+          <div class="breadcrumb">
+            <a href="{{ routes.root_url }}" rel="nofollow">Home</a>
+            <span> / </span> 
+            <a href="{{ routes.collections_url }}">Shop</a> 
+            <span> / </span> 
+            {{ collection.title }}
+          </div>
+        </div>
+        <div class="col-xl-8 text-end d-none d-xl-block">
+          {% if collection.all_tags.size > 0 %}
+          <ul class="tags-list">
+            {% for tag in collection.all_tags %}
+            <li class="hover-up">
+              <a >
+                {{ tag }}
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% comment %} <header 
   id="collection-header-{{ section.id }}"
   class="
     collection-header image-overlay
@@ -47,7 +82,7 @@
       </div>
     {% endif %}
   </div>
-</header>
+</header> {% endcomment %}
 
 {% schema %}
 {
