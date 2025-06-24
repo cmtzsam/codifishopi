@@ -8,6 +8,9 @@
 }
 
 footer{
+  .footer-mid{
+    border-top: 1px solid $background-1;
+  }
   .paymentstxt{
     margin: 50px 0 0;
     @media (min-width: 979px) {
@@ -40,4 +43,48 @@ footer{
       }
     }
   }
+}
+
+
+
+.detail-info .product-price .old-price{
+  color: $color-brand-dark;
+}
+.detail-info .product-price .save-price{
+  color: white;
+  background-color: $color-brand-dark;
+}
+.product-options .size-buttons input + label{
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  color: $color-brand-dark;
+  border-color: $color-brand-dark;
+}
+.product-options .size-buttons input:checked + label{
+  background-color: $color-brand-dark;
+  border-color: $color-brand-dark;
+}
+.qty-input-wrapper .form-control{
+  height: 100%;
+  border-radius: 0;
+}
+.qty-input-wrapper .btn{
+  background-color: $color-brand-dark;
+  border-color: $color-brand-dark;
+  border-radius: 0;
+  &:active,
+  &:focus,
+  &:hover{
+    background-color: $color-brand;
+    border-color: $color-brand;
+  }
+  &[disabled]{
+    background-color: white;
+    border: 1px solid #f0e9fd;
+  }
+}
+button.submit, 
+button[type=submit]{
+  border-radius: 0;
 }

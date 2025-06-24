@@ -19,7 +19,6 @@ time, mark, audio, video {
 	padding: 0;
 	border: 0;
 	font-size: 100%;
-	font: inherit;
 	vertical-align: baseline;
 }
 thead {font-weight: 600;}
@@ -147,6 +146,7 @@ input[type=number]:focus,
 
 .text-brand {color: $color-brand !important;}
 .text-brand-2 {color: $color-brand-2 !important;}
+.text-brand-dark {color: $color-brand-dark !important;}
 .text-primary {color: $color-primary !important;}
 .text-warning {color: $color-warning !important;}
 .text-danger {color: $color-danger !important;}

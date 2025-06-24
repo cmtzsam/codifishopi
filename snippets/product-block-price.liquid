@@ -5,51 +5,48 @@
   assign pb = block.settings.pb | prepend: 'pb-'
 %}
 
-<div 
-  class="product-price {{ block.settings.font_size }} {{ pt }} {{ pb }}"
-  {{ block.shopify_attributes }}>
+<div class="clearfix product-price-cover">
+  <div 
+    class="product-price {{ block.settings.font_size }} {{ pt }} {{ pb }} product-price primary-color float-left"
+    {{ block.shopify_attributes }}>
 
-  <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center">
 
-    <s 
-      class="product-price-compare" 
-      {% unless current_variant.compare_at_price > current_variant.price %}hidden{% endunless %}>
-      <span class="visually-hidden">
-        {{ 'product.regular_price' | t }} 
-      </span>
-      {{ current_variant.compare_at_price | money_without_trailing_zeros }}
-    </s>
 
-    <span class="product-price-final {% if current_variant.compare_at_price > current_variant.price %}product-price-final-sale{% endif %}">
-      {% if current_variant.compare_at_price > current_variant.price %}
-        <span class="visually-hidden">
-          {{ 'product.sale_price' | t }} 
-        </span>
-      {% endif %}
-      {{ current_variant.price | money_without_trailing_zeros }}
-    </span>
 
-    <span 
-      class="product-sale-badge badge" 
-      data-discount-type="{{ block.settings.badge_discount_type }}"
-      {% unless current_variant.compare_at_price > current_variant.price %}hidden{% endunless %}>
-      {{ 'product.save' | t }}
-      {% if current_variant.compare_at_price > 0 %}
-        {% if block.settings.badge_discount_type == 'percentage' %} 
-          {{ current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price | round | append: '%' }}
-        {% else %}
-          {{ current_variant.compare_at_price | minus: current_variant.price | money_without_trailing_zeros }}
+      <span class="product-price-final {% if current_variant.compare_at_price > current_variant.price %}product-price-final-sale{% endif %} current-price text-brand">
+        {% if current_variant.compare_at_price > current_variant.price %}
+          <span class="visually-hidden">
+            {{ 'product.sale_price' | t }} 
+          </span>
         {% endif %}
-      {% endif %}
-    </span> 
-
-    <span 
-      class="product-sold-out-badge badge"
-      {% if current_variant.available %}hidden{% endif %}>
-      {{ 'product.sold_out' | t }}
-    </span>    
+        {{ current_variant.price | money_without_trailing_zeros }}
+      </span>
+      <span>
+        <span 
+          class="save-price font-md ml-15 product-sale-badge badge" 
+          data-discount-type="{{ block.settings.badge_discount_type }}"
+          {% unless current_variant.compare_at_price > current_variant.price %}hidden{% endunless %}>
+          {% if current_variant.compare_at_price > 0 %}
+          {% if block.settings.badge_discount_type == 'percentage' %} 
+          {{ current_variant.compare_at_price | minus: current_variant.price | times: 100 | divided_by: current_variant.compare_at_price | round | append: '%' }}
+          {% else %}
+          {{ current_variant.compare_at_price | minus: current_variant.price | money_without_trailing_zeros }}
+          {% endif %}
+          {% endif %}
+          {{ 'product.save' | t }}
+        </span>         
+        <s 
+          class="product-price-compare font-md ml-15" 
+          {% unless current_variant.compare_at_price > current_variant.price %}hidden{% endunless %}>
+          <span class="visually-hidden">
+            {{ 'product.regular_price' | t }} 
+          </span>
+          {{ current_variant.compare_at_price | money_without_trailing_zeros }}
+        </s>
+      </span> 
+    </div>
+        
   </div>
-      
 </div>
-
 {{ form | payment_terms }}

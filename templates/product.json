@@ -23,15 +23,15 @@
             "pagination_type": "bullets",
             "scrollbar": true,
             "show_thumbs": "show",
-            "thumbs_per_view": 5,
-            "full_screen": true,
-            "full_screen_effect": "slide"
+            "thumbs_per_view": 8,
+            "full_screen": false,
+            "full_screen_effect": "fade"
           }
         },
         "40d3cdd3-9d78-4f15-b346-c3f46d49f7b1": {
           "type": "title",
           "settings": {
-            "title_font_size": "h3",
+            "title_font_size": "h2",
             "pt": 3,
             "pb": 2
           }
@@ -84,9 +84,9 @@
           "settings": {
             "show_qty_field": true,
             "show_dynamic_buttons": false,
-            "atc_btn_color": "btn-primary",
+            "atc_btn_color": "btn-secondary",
             "atc_btn_size": "",
-            "show_buy_btn": true,
+            "show_buy_btn": false,
             "buy_btn_color": "btn-outline-secondary",
             "buy_btn_size": "",
             "pt": 0,
@@ -95,15 +95,13 @@
         },
         "08894b72-c532-44db-9228-5f14c9841895": {
           "type": "trust_icons",
+          "disabled": true,
           "settings": {
             "label": "What we promise",
             "max_width": "460",
             "img_size": 24,
-            "img_1": "shopify://shop_images/icon-star.svg",
             "text_1": "<p>Commitment to<br/>Excellence</p>",
-            "img_2": "shopify://shop_images/hand-thumbs-up.svg",
             "text_2": "<p>100% Satisfaction<br/>Guarantee</p>",
-            "img_3": "shopify://shop_images/icon-truck.svg",
             "text_3": "<p>Free Shipping<br/>Over $90</p>",
             "text_4": "",
             "pt": 0,
@@ -112,6 +110,7 @@
         },
         "11016cfc-fdff-46f2-9b6b-26a6e68b7653": {
           "type": "collapse",
+          "disabled": true,
           "settings": {
             "icon_size": 20,
             "title": "Product Details",
@@ -133,6 +132,7 @@
         },
         "9ecd1e68-8c4b-4330-ac14-7459a1896521": {
           "type": "collapse",
+          "disabled": true,
           "settings": {
             "icon_size": 20,
             "title": "Shipping Information",
@@ -154,6 +154,7 @@
         },
         "0f571c64-329e-4ea3-9c76-ebf86266226a": {
           "type": "collapse",
+          "disabled": true,
           "settings": {
             "icon_size": 20,
             "title": "Returns & Warranty",

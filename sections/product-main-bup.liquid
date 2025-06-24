@@ -35,133 +35,44 @@
           {% render 'product-block-media-gallery' %}
         </div>
         <div class="col-12 col-md-6 col-lg-6">
-          <div class="detail-info pr-30 pl-30">
-            <div id="product-inner-{{ product.id }}">
-              <product-form>
-                {% form 'product', product, data-productid: product.id, data-variants: variants_json %}
-                  <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ product.selected_or_first_available_variant.id }}">
-                  {% liquid
-                    for block in section.blocks
-                      case block.type
-                        when 'title'
-                          render 'product-block-title', block: block
-                        when 'price'
-                          render 'product-block-price', block: block, form: form
-                          render 'product-description', block: block 
-                        when 'options'
-                          render 'product-block-options', block: block, form: form
-                        when 'atc_button'
-                          render 'product-block-atc-button', block: block, form: form
-                        when 'richtext'
-                          render 'product-block-richtext', block: block
-                        when 'collapse'
-                          render 'product-block-collapse', block: block
-                        when 'liquid'
-                          render 'product-block-liquid', block: block
-                        when 'trust_icons'
-                          render 'product-block-trust-icons', block: block
-                        when 'separator'
-                          render 'product-block-separator', block: block
-                        when 'stock_indicator'
-                          render 'product-block-stock-indicator', block: block
-                        when '@app'
-                          render block
-                      endcase
-                    endfor
-                  %}
-                {% endform %}
-                <div class="primary-sidebar ">
-                  <div class="row">
-                    <div class="col col-12 d-flex my-2">
-                      <div class="sidebar-widget widget-category-2 w-100">
-                        <h5 class="section-title style-1 mb-30">Información</h5>
-                        <ul class="row justify-content-center gap-5">
-                          {% assign all_types = '' %}
-                          {% for product in collections.all.products %}
-                            {% unless all_types contains product.type %}
-                              {% assign all_types = all_types | append: product.type | append: '||' %}
-                            {% endunless %}
-                          {% endfor %}
-                          {% assign types_array = all_types | split: '||' %}
-                          {% for type in types_array %}
-                            {% unless type == blank %}
-                              <li class="col col-12 col-md-5 col-lg-5">
-                                
-                                <a href="{{ routes.collections_url }}/{{ type | handle }}">
-                                  {% comment %} <img src="https://placehold.co/30" alt=""> {% endcomment %}
-                                  Categoría: <strong>&nbsp;{{ type }}</strong>
-                                </a>
-                              </li>
-                            {% endunless %}
-                          {% endfor %}
-                          <li class="col col-12 col-md-5 col-lg-5">
-                            {% if product.metafields.custom.expansion %}
-                              <a href="{{ routes.collections_url }}/{{ product.metafields.custom.expansion | handle }}">
-                                  Expansión: 
-                                  <strong>&nbsp;{{ product.metafields.custom.expansion }}</strong>
-                                </a>
-                                {% else %}
-                                No disponible
-                                {% endif %}
-                          </li>
-                          <li class="col col-12 col-md-5 col-lg-5">
-                            
-                              <a >
-                                  Fecha de salida: 
-                                  {% if product.metafields.custom.fechadesalida %}
-                                  <strong>&nbsp;{{ product.metafields.custom.fechadesalida }}</strong>
-                                {% else %}
-                                  No disponible
-                                  {% endif %}
-                                </a>
-                          </li>
-                          </ul>
-                      </div>                           
-                    </div>
-                    {% comment %} <div class="col col-12 col-md-6 col-lg-6 my-2">
-                      <div class="banner-img w-100">
-                          <img src="https://placehold.co/345x362" alt="" />
-                          <div class="banner-text">
-                              <span>Oganic</span>
-                              <h4>
-                                  Save 17% <br />
-                                  on <span class="text-brand">Oganic</span><br />
-                                  Juice
-                              </h4>
-                          </div>
-                      </div>                            
-                    </div> {% endcomment %}
-                  </div>
-           
-     
-                </div>                
-              </product-form>
-            </div>
+          <div id="product-inner-{{ product.id }}">
+            <product-form>
+              {% form 'product', product, data-productid: product.id, data-variants: variants_json %}
+                <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ product.selected_or_first_available_variant.id }}">
+                {% liquid
+                  for block in section.blocks
+                    case block.type
+                      when 'title'
+                        render 'product-block-title', block: block
+                      when 'price'
+                        render 'product-block-price', block: block, form: form
+                      when 'options'
+                        render 'product-block-options', block: block, form: form
+                      when 'atc_button'
+                        render 'product-block-atc-button', block: block, form: form
+                      when 'richtext'
+                        render 'product-block-richtext', block: block
+                      when 'collapse'
+                        render 'product-block-collapse', block: block
+                      when 'liquid'
+                        render 'product-block-liquid', block: block
+                      when 'trust_icons'
+                        render 'product-block-trust-icons', block: block
+                      when 'separator'
+                        render 'product-block-separator', block: block
+                      when 'stock_indicator'
+                        render 'product-block-stock-indicator', block: block
+                      when '@app'
+                        render block
+                    endcase
+                  endfor
+                %}
+              {% endform %}
+            </product-form>
           </div>
-
         </div>
       </div>
     </div>
-
-    <br>
-    <div class="product-info">
-        <div class="tab-style3">
-            <ul class="nav nav-tabs text-uppercase">
-                <li class="nav-item">
-                    <a class="nav-link active" id="Description-tab" data-bs-toggle="tab" href="#Description">Descripción completa</a>
-                </li>
-                {% comment %} <li class="nav-item">
-                    <a class="nav-link" id="Additional-info-tab" data-bs-toggle="tab" href="#Additional-info">Additional info</a>
-                </li> {% endcomment %}
-            </ul>
-            <div class="tab-content shop_info_tab entry-main-content">
-                <div class="tab-pane fade show active" id="Description">
-                  {{ product.description }}
-                </div>
-            </div>
-        </div>
-    </div>    
-
   </div>
 </section>
 
