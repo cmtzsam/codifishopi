@@ -8,22 +8,20 @@
   {% render 'product-card' product: product  %}
 {% endcomment %}
 
-<div class="product-cart-wrap hover-up">
+<div class="product-cart-wrap hover-up customCard">
   <div class="product-img-action-wrap">
-    <div class="product-img product-img-zoom">
+    <div class="product-img ">
       <a href="{{ product.url | within: collection }}" tabindex="0">
+        <img class="default-img" src="{{ product.featured_image | image_url: width: 260 }}" alt="{{ product.title | escape }}" />
+        {% comment %}
         <img class="default-img" src="{{ product.featured_image | image_url: width: 260 }}" alt="{{ product.title | escape }}" />
         {% if product.images.size > 1 %}
           <img class="hover-img" src="{{ product.images[1] | image_url: width: 260 }}" alt="{{ product.title | escape }}" />
         {% else %}
           <img class="hover-img" src="{{ product.featured_image | image_url: width: 260 }}" alt="{{ product.title | escape }}" />
         {% endif %}
+        {% endcomment %}
       </a>
-    </div>
-    <div class="product-action-1 d-none">
-      <a aria-label="Quick view" class="action-btn small hover-up" data-bs-toggle="modal" data-bs-target="#quickViewModal"><i class="fi-rs-search"></i></a>
-      <a aria-label="Add To Wishlist" class="action-btn small hover-up" href="/account/wishlist" tabindex="0"><i class="fi-rs-heart"></i></a>
-      <a aria-label="Compare" class="action-btn small hover-up" href="/compare" tabindex="0"><i class="fi-rs-shuffle"></i></a>
     </div>
     <div class="product-badges product-badges-position product-badges-mrg">
       {% if product.available == false %}
@@ -41,17 +39,17 @@
       {% endif %}
     </div>
   </div>
-  <div class="product-content-wrap pt-25">
-    <h2>
-      <a href="{{ product.url | within: collection }}" tabindex="0">{{ product.title }}</a>
-    </h2>
+  <a href="{{ product.url | within: collection }}" tabindex="0" class="product-content-wrap pt-25 text-center">
+    <span class="font-xl text-center d-block fw-bold">
+      {{ product.title }}
+    </span>
     <div class="rating-result d-none" title="90%">
       {% render 'product-rating-badge', product: product %}
     </div>
     <div class="product-price">
       {% render 'product-card-price', product: product %}
     </div>
-  </div>
+  </a>
 </div>
 
   {% comment %} {% if settings.product_card_show_atc_form %}

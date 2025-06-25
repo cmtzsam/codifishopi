@@ -74,7 +74,7 @@
                   <div class="row">
                     <div class="col col-12 d-flex my-2">
                       <div class="sidebar-widget widget-category-2 w-100">
-                        <h5 class="section-title style-1 mb-30">Información</h5>
+                        <h5 class="section-title style-1 mb-30">Acerca del producto</h5>
                         <ul class="row justify-content-center gap-5">
                           {% assign all_types = '' %}
                           {% for product in collections.all.products %}
@@ -85,7 +85,7 @@
                           {% assign types_array = all_types | split: '||' %}
                           {% for type in types_array %}
                             {% unless type == blank %}
-                              <li class="col col-12 col-md-5 col-lg-5">
+                              <li class="col col-12 col-md-5 col-lg-5 my-0">
                                 
                                 <a href="{{ routes.collections_url }}/{{ type | handle }}">
                                   {% comment %} <img src="https://placehold.co/30" alt=""> {% endcomment %}
@@ -94,7 +94,7 @@
                               </li>
                             {% endunless %}
                           {% endfor %}
-                          <li class="col col-12 col-md-5 col-lg-5">
+                          <li class="col col-12 col-md-5 col-lg-5 my-0">
                             {% if product.metafields.custom.expansion %}
                               <a href="{{ routes.collections_url }}/{{ product.metafields.custom.expansion | handle }}">
                                   Expansión: 
@@ -104,7 +104,7 @@
                                 No disponible
                                 {% endif %}
                           </li>
-                          <li class="col col-12 col-md-5 col-lg-5">
+                          {% comment %} <li class="col col-12 col-md-5 col-lg-5">
                             
                               <a >
                                   Fecha de salida: 
@@ -114,7 +114,7 @@
                                   No disponible
                                   {% endif %}
                                 </a>
-                          </li>
+                          </li> {% endcomment %}
                           </ul>
                       </div>                           
                     </div>
