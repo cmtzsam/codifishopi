@@ -1,3 +1,4 @@
+
 <header 
   id="blog-header-{{ section.id }}"
   class="
@@ -5,9 +6,7 @@
     {{ section.settings.bg_color }} 
     {{ section.settings.bg_gradient }}
     {{ section.settings.text_color }}
-    {{ section.settings.border_top_width | prepend: 'border-top-' }}
-    {{ section.settings.border_bottom_width | prepend: 'border-bottom-' }}
-    {{ section.settings.border_color }} 
+    
     {{ section.settings.pt | prepend: 'pt-' }} 
     {{ section.settings.pb | prepend: 'pb-' }}
     {{ section.settings.pt_desktop | prepend: 'pt-lg-' }} 
@@ -16,37 +15,56 @@
   style="
     --bs-bg-opacity: {{ section.settings.bg_opacity | append: '%' }};
     --bs-border-opacity: {{ section.settings.border_opacity | append: '%' }};
-  ">
-  {% unless section.settings.img == blank %}
-    <div 
-      class="img-wrapper"
-      style="
-        --overlay-color-rgb: {{ section.settings.img_overlay_color | color_to_rgb | remove: 'rgb(' | remove: ')' }};
-        --overlay-opacity: {{ section.settings.img_overlay_opacity | append: '%' }};
-        --overlay-blur: {{ section.settings.img_overlay_blur | append: 'px' }}
-      ">
-      <img
-        srcset="{{ section.settings.img | image_url: width: 800 }} 800w, {{ section.settings.img | image_url: width: 1600 }} 1600w"
-        src="{{ section.settings.img | image_url: width: 1600 }}"
-        class="img-fluid"
-        alt="{{ section.settings.img.alt }}"
-        width="1600"
-        height="{{ 1600 | divided_by: section.settings.img.aspect_ratio }}"
-        loading="eager">
-      </div>
-  {% endunless %}
-  <div 
-    class="container"
-    style="max-width: {{ section.settings.container_max_width | append: 'px' }};">
-    <h2 class="title {{ section.settings.title_font_size }}">
-      <span>{{ blog.title }}</span>
-    </h2>
-    {% unless section.settings.description == blank %}
-      <div class="description rte mb-0 {{ section.settings.description_font_size }}">
-        {{ section.settings.description }}
-      </div>
-    {% endunless %}
-  </div>
+    "
+>
+                <div class="page-header mt-30 mb-30">
+                  <div class="container">
+                    <div class="archive-header" style="background-image: url(https://placehold.co/1920x600);">
+                        <div class="row align-items-center">
+                            <div class="col-xl-3">
+                              {% if current_tags %}
+                                <h1 class="mb-15 {{ section.settings.title_font_size }}">
+                                  <span>{{ blog.title }} - <span style="text-transform: capitalize">{{ current_tags | join: ', ' }}</span></span>
+                                </h1>
+                              {% else %}
+                                <h1 class="mb-15 {{ section.settings.title_font_size }}">
+                                  <span>{{ blog.title }}</span>
+                                </h1>                                
+                              {% endif %}
+                              {% if current_tags == blank %}
+                                {% unless section.settings.description == blank %}
+                                  <div class="description rte mb-0 {{ section.settings.description_font_size }}">
+                                    {{ section.settings.description }}
+                                  </div>
+                                {% endunless %}
+                              {% endif %}
+                              {% if current_tags %}
+                              <div class="breadcrumb">
+                                <a href="{{ routes.root_url }}" rel="nofollow">Inicio</a>
+                                <span> / </span>
+                                <a href="{{ blog.url }}">Blog</a>
+                                  <span> / </span>
+                                  {{ current_tags | join: ', ' }}
+                                </div>
+                              {% endif %}
+                            </div>
+                            <div class="col-xl-9 text-end d-none d-xl-block">
+                                {% assign sorted_tags = blog.all_tags | sort_natural: 'last' | reverse %}
+                                <ul class="tags-list">
+                                  {% for tag in sorted_tags limit: 5 %}
+                                    <li class="hover-up {% if current_tags contains tag %}active{% endif %}">
+                                      <a href="{{ blog.url }}/tagged/{{ tag | handle }}">
+                                        <i class="fi-rs-cross mr-10 d-none"></i>
+                                        #{{ tag }}
+                                      </a>
+                                    </li>
+                                  {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                </div>
 </header>
 
 {% schema %}
@@ -272,7 +290,6 @@
       "default": 14
     }
   ],
-  "templates": ["blog"],
   "presets": [
     {
       "name": "Blog header"

@@ -1,9 +1,18 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "blog_header_7BFLtm": {
       "type": "blog-header",
       "settings": {
-        "bg_color": "bg-primary",
+        "bg_color": "bg-white",
         "bg_opacity": 5,
         "bg_gradient": "",
         "text_color": "text-body",
@@ -17,12 +26,12 @@
         "img_overlay_opacity": 30,
         "img_overlay_blur": 5,
         "title_font_size": "h2",
-        "description": "<p>Add on optional description for this blog<\/p>",
+        "description": "<p>Add on optional description for this blog</p>",
         "description_font_size": "fs-md",
-        "pt": 11,
-        "pb": 11,
-        "pt_desktop": 13,
-        "pb_desktop": 13
+        "pt": 0,
+        "pb": 0,
+        "pt_desktop": 0,
+        "pb_desktop": 0
       }
     },
     "template-blog": {

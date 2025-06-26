@@ -12,7 +12,7 @@
   <div class="product-img-action-wrap">
     <div class="product-img ">
       <a href="{{ product.url | within: collection }}" tabindex="0">
-        <img class="default-img" src="{{ product.featured_image | image_url: width: 260 }}" alt="{{ product.title | escape }}" />
+        <img class="default-img" src="{{ product.featured_image | image_url: width: 260 }}" alt="{{ product.title | escape }}" width="{{ product.featured_image.width }}" height="{{ product.featured_image.height }}" />
         {% comment %}
         <img class="default-img" src="{{ product.featured_image | image_url: width: 260 }}" alt="{{ product.title | escape }}" />
         {% if product.images.size > 1 %}

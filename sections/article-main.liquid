@@ -5,39 +5,85 @@
     {{  section.settings.pt | prepend: 'pt-' }}
     {{  section.settings.pb | prepend: 'pb-' }}
   ">
+
+
+<div class="single-header style-2">
+  <div class="container pt-50 pr-30">
+    <div class="row">
+      <div class="col-xl-10 col-lg-12 m-auto">
+        {% if article.tags.size > 0 %}
+          <h6 class="mb-10">
+            <a  href="{{ blog.url }}/tagged/{{ article.tags.first | handle }}">
+              {{ article.tags.first }}
+            </a>
+          </h6>
+        {% endif %}
+        <h1 class="article-title">
+          {{ article.title }}
+        </h1>                  
+        <div class="single-header-meta">
+          <div class="entry-meta meta-1 font-xs mt-15 mb-15">
+            {% if article.user and article.user.image %}
+              <a class="author-avatar">
+                <img src="{{ article.user.image | image_url: '100x100' }}" alt="{{ article.author }}" class="img-circle" width="100" height="100">
+              </a>
+            {% endif %}
+            <span class="post-by">
+              Escrito por: 
+              {{ article.author }}
+            </span>
+            <span class="post-on has-dot">
+              {{ article.created_at | time_tag: '%b %d, %Y' }}
+            </span>
+            {% assign words = article.content | strip_html | split: ' ' | size %}
+            {% assign read_time = words | divided_by: 200 %}
+            {% if words > 0 %}
+            <span class="time-reading has-dot">
+              Lectura de: {{ read_time | plus: 1 }} minutos
+            </span>
+            {% endif %}            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
   {% if section.settings.img_show and article.image %}
-    <div class="img-wrapper mb-8">
+    <div class="single-thumbnail">
       <div class="container">
-        {% render 'image-url', img: article.image, size: 1600, orientation: section.settings.img_orientation, class: section.settings.img_border %}
+        <div class="row">
+          <div class="col-xl-11 col-lg-12 m-auto">
+            {% render 'image-url', img: article.image, size: 1600, orientation: section.settings.img_orientation, class: section.settings.img_border %}            
+          </div>
+        </div>
       </div>
     </div>
   {% endif %}
-  <div class="article-content">
-    <div 
-      class="container" 
-      style="max-width: {{ section.settings.max_width }}px">
-      <h1 class="article-title title mb-4 {{ section.settings.title_font_size }}">
-        {{ article.title }}
-      </h1>
-      {% if section.settings.article_meta %}
-        <p class="article-meta opacity-70 mb-5">
-          {{ article.author }} @ {{ article.created_at | time_tag: '%b %d, %Y' }}
-        </p>
-      {% endif %}
-      <div class="article-content rte mb-6">
-        {{ article.content }}
-      </div>
-      {% if section.settings.show_tags and article.tags.size > 0 %}
-        <div class="article-tags small opacity-70 mb-7">
-          {{ 'general.blog.posted_in' | t }}: 
-          {% for tag in article.tags %}
-          <a href="{{ blog.url }}/tagged/{{ tag | handle }}">
-            {{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-          {% endfor %}
-        </div>
-      {% endif %} 
+  <div class="single-content">
+    <div class="container"  >
+      <div class="row">
+        <div class="col-xl-8 col-lg-8 m-auto">
+          {{ article.content }}
+          <div class="entry-bottom mt-50 mb-30 d-flex justify-content-start align-items-center">
+            <span>
+              Categorías: &nbsp;&nbsp;
+            </span>
+            {% assign sorted_tags = blog.all_tags | sort_natural: 'last' | reverse %}
+            {% for tag in sorted_tags limit: 5 %}
+              <a href="{{ blog.url }}/tagged/{{ tag | handle }}" class="hover-up btn btn-sm btn-rounded mr-10">
+                <i class="fi-rs-cross mr-10 d-none"></i>
+                #{{ tag }}
+              </a>
+            {% endfor %}
+          </div>
+        </div>      
+      </div> 
     </div>
   </div>
+
+
+
 </article>
 
 {% schema %}
@@ -138,7 +184,6 @@
       "default": 10
     }
   ],
-  "templates": ["article"],
   "presets": [
     {
       "name": "Article main"

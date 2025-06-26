@@ -25,12 +25,16 @@
   ">
   <div 
     class="container"
-    style="max-width: {{ section.settings.container_max_width | append: 'px' }};">
+    >
     {% paginate collection.products by limit %}
       {% if collection.products.size == 0 %}
-        <p class="alert alert-primary">
-          {{ 'collection.empty_html' | t }}
-        </p>
+
+        <div class="emptyCollection">
+          <p >
+            {{ 'collection.empty_html' | t }}
+          </p>
+        </div>
+
       {% else %}
         {% render 'collection-utilities' %}
         <div 
@@ -279,7 +283,6 @@
       "default": 10
     }
   ],
-  "templates": ["collection"],
   "presets": [
     {
       "name": "Collection products"

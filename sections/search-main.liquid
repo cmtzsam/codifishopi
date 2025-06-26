@@ -2,14 +2,12 @@
   id="search-main-{{ collection.id }}" 
   class="
     search-main
-    {{ section.settings.pt | prepend: 'pt-' }} 
-    {{ section.settings.pb | prepend: 'pb-' }}
   ">
   <header class="section-header text-center mb-9">
     <div 
       class="container" 
       style="max-width: 600px;">
-      <h1 class="title mb-4 {{ section.settings.header_title_font_size }}">
+      <h1 class="title {{ section.settings.header_title_font_size }}">
         {% if search.performed %}
           {{ 'general.search.search_page.title_search_performed' | t }}
         {% else %}
@@ -168,7 +166,6 @@
       "default": 9
     }
   ],
-  "templates": ["search"],
   "presets": [
     {
       "name": "Search"

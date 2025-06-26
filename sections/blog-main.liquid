@@ -32,40 +32,80 @@
           {{ 'general.blog.empty' | t }}
         </p>
       {% else %}
-        <div class="blog-utilities mb-4 {% unless section.settings.show_article_count %}justify-content-end{% endunless %}">
+        
+        <div class="blog-utilities mb-4 {% unless section.settings.show_article_count %}justify-content-end{% endunless %} shop-product-fillter">
           {% if section.settings.show_article_count %}
             <p class="block-article-count small mb-0">
               {{ 'general.blog.count_articles' | t: count: blog.articles_count }}
             </p>
           {% endif %}
           {% if section.settings.show_tags %}
-            <button 
-              class="btn btn-sm mx px-4 mx-2 {{ section.settings.tags_btn_color }}" 
-              type="button" 
-              data-bs-toggle="offcanvas" 
-              data-bs-target="#offcanvas-blog-tags"
-              aria-controls="offcanvas-blog-tags">
-              <span class="d-flex align-items-center">
-                {% render 'svg-icons', icon: 'tag', size: 16, class: 'me-3' %}
-                {{ 'general.blog.tags_btn' | t }}
-              </span>
-            </button>
+            <div class="sort-by-product-area">
+              <div class="sort-by-product-wrap">
+                <button 
+                  class="btnfiltro"
+                  type="button" 
+                  data-bs-toggle="offcanvas" 
+                  data-bs-target="#offcanvas-blog-tags"
+                  aria-controls="offcanvas-blog-tags">
+                  <span class="d-flex align-items-center">
+                    {% render 'svg-icons', icon: 'tag', size: 16, class: 'me-3' %}
+                    {{ 'general.blog.tags_btn' | t }}
+                  </span>
+                </button>                
+              </div>
+            </div>
+
           {% endif %}
         </div>
-        <div 
-          class="
-            article-list mx-n3 mx-lg-n4 mb-0 row 
-            {{ section.settings.breakpoint_mobile | prepend: 'row-cols-' }}
-            {{ section.settings.breakpoint_tablet | prepend: 'row-cols-md-' }}
-            {{ section.settings.breakpoint_desktop | prepend: 'row-cols-lg-' }}
-          "
-          role="list">
-          {% for article in blog.articles %}
-            <div class="p-3 p-lg-4 mb-3 mb-lg-4" role="list-item">
-              {% render 'article-card', article: article %}
-            </div>
-          {% endfor %}
-        </div>
+        <div class="loop-grid">
+          <div 
+            class="
+              article-list mx-n3 mx-lg-n4 mb-0 row 
+              {{ section.settings.breakpoint_mobile | prepend: 'row-cols-' }}
+              {{ section.settings.breakpoint_tablet | prepend: 'row-cols-md-' }}
+              {{ section.settings.breakpoint_desktop | prepend: 'row-cols-lg-' }}
+            "
+            role="list">
+            {% for article in blog.articles %}
+              <article class="col-xl-4 col-lg-6 col-md-6 text-center hover-up mb-30 animated">
+                <div class="post-thumb">
+                  <a href="{{ article.url }}">
+                    {% if article.image %}
+                      <img class="border-radius-15" src="{{ article.image | image_url: width: 600 }}" alt="{{ article.image.alt | escape }}" width="600" height="300" style="height: auto;" />
+                    {% else %}
+                      <img class="border-radius-15" src="https://placehold.co/60" alt="No image available" width="600" height="300" style="height: auto;" />
+                    {% endif %}
+                  </a>
+                </div>
+                <div class="entry-content-2">
+                  {% if article.tags.size > 0 %}
+                    <h6 class="mb-10 font-sm">
+                      <a class="tagPost" href="{{ blog.url }}/tagged/{{ article.tags.first | handle }}">
+                        {{ article.tags.first }}
+                      </a>
+                    </h6>
+                  {% endif %}
+                  <h4 class="post-title mb-15">
+                    <a href="{{ article.url }}">{{ article.title }}</a>
+                  </h4>
+                  <div class="entry-meta font-xs color-grey mt-10 pb-10">
+                    <div>
+                      <span class="post-on mr-10">{{ article.published_at | date: "%d %B %Y" }}</span>
+                        {% assign words = article.content | strip_html | split: ' ' | size %}
+                        {% assign read_time = words | divided_by: 200 %}
+                        {% if words > 0 %}
+                        <span class="hit-count has-dot">
+                          Lectura de: {{ read_time | plus: 1 }} minutos
+                        </span>
+                        {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </article>
+            {% endfor %}
+          </div>
+         </div>
         {% render 'pagination', paginate: paginate %}
       {% endif %}
     {% endpaginate %}
@@ -371,7 +411,6 @@
       "default": 10
     }
   ],
-  "templates": ["blog"],
   "presets": [
     {
       "name": "Blog"
