@@ -156,7 +156,7 @@
     }
   },
   "product": {
-    "add_to_cart": "Add to cart",
+    "add_to_cart": "Add",
     "buy_it_now": "Buy it now",
     "save": "Save",
     "sold_out": "Sold out",
@@ -215,7 +215,7 @@
         "unavailable": "Unavailable",
         "on_sale": "Sale",
         "quantity": "Quantity",
-        "add_to_cart": "Add to cart",
+        "add_to_cart": "Add",
         "back_to_collection": "Back to {{ title }}",
         "view_details": "View details"
       }

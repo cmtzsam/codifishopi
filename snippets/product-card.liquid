@@ -38,20 +38,51 @@
         {% comment %} <span class="new">New</span> {% endcomment %}
       {% endif %}
     </div>
+
+    <div class="customCard--vendorList">
+      <a href="{{ routes.collections_url }}/vendors?q={{ product.vendor | url_encode }}">
+        {{ product.vendor }}
+      </a>
+    </div>
+
   </div>
-  <a href="{{ product.url | within: collection }}" tabindex="0" class="product-content-wrap pt-25 text-center">
-    <span class="font-xl text-center d-block fw-bold">
-      {{ product.title }}
-    </span>
+  <div class="product-content-wrap pt-25 ">
+    <div class="customCard--collectionsList">
+      {% assign filtered_collections = product.collections | reject: "title", "Pokémon" | reject: "title", "Pokemon" %}
+      {% assign collections_count = filtered_collections.size %}
+      {% for collection in filtered_collections %}
+        <a href="{{ collection.url }}">
+          {{ collection.title }}
+        </a>
+        {% unless forloop.last or collections_count == 1 %} <span style="opacity: 0.5">&nbsp;-&nbsp;</span> {% endunless %}
+      {% endfor %}
+    </div>       
+    <a href="{{ product.url | within: collection }}" tabindex="0" class="font-xl d-block titleProd">
+      {{ product.title | truncate: 33 }}
+    </a> 
     <div class="rating-result d-none" title="90%">
       {% render 'product-rating-badge', product: product %}
     </div>
-    <div class="product-price">
-      {% render 'product-card-price', product: product %}
+
+    <div class="footCard row aling-items-center">
+      <div class="col-6 d-flex">
+        <div class="product-price">
+          {% render 'product-card-price', product: product %}
+        </div>
+      </div>
+      <div class="col-6 d-flex align-items-center justify-content-end">
+        {% if product.variants.size > 1 %}
+          <a href="{{ product.url | within: collection }}" class="btn btn-atc btn-sm btn-primary" >
+            Ver más
+          </a>
+        {% else %}
+          {% render 'product-card-form', product: product %}
+        {% endif %}
+      </div>
     </div>
-  </a>
+  </div>
 </div>
 
-  {% comment %} {% if settings.product_card_show_atc_form %}
-    {% render 'product-card-form', product: product %}
-  {% endif %} {% endcomment %}
+  
+    
+  

@@ -31,31 +31,29 @@
         {% assign collection = block.settings.collection %}
         {% assign title = block.settings.title | default: collection.title %}
         {% assign image = block.settings.img | default: collection.image %}
-
         <div class="col-lg-3 col-md-6 col-sm-6 col-12" {{ block.shopify_attributes }}>
-          <div class="vendor-wrap mb-40 ">
+          <a href="{{ collection.url }}" class="vendor-wrap d-block ">
             <div class="vendor-img-action-wrap d-flex align-items-end justify-content-between">
               <div class="vendor-img d-flex align-items-center" style="height: 75px;">
-                <a href="{{ collection.url }}" class="d-block">
+                <span class="d-block">
                   <img class="default-img {{ section.settings.collection_card_img_border }} {{ section.settings.collection_card_img_orientation }}" src="{{ image | image_url }}" alt="{{ title }}" style="width:100%;max-width: 180px; max-height: 75px; border: 0; object-fit: contain;" width="180" height="75" >
-                </a>
+                </span>
               </div>
-                  {% if section.settings.collection_card_show_product_count %}
-                    <div class="vendor-content-wrap px-0 py-0">
-                    <span class="font-small total-product d-table ms-auto text-center bg-white" style="opacity: 0.25;">
-                      {{ collection.products_count }} productos
-                    </span>
-                  </div>
-                  {% endif %}              
+              {% if section.settings.collection_card_show_product_count %}
+                <div class="vendor-content-wrap px-0 py-0">
+                <span class="font-small total-product d-table ms-auto text-center bg-white" style="opacity: 0.25;">
+                  {{ collection.products_count }} productos
+                </span>
+              </div>
+              {% endif %}              
             </div>
-
             <div class="vendor-content-wrap {{ section.settings.collection_card_text_align }}">
               <div class="d-flex justify-content-between align-items-end ">
                 <div class="text-start">
                   {% if section.settings.collection_card_show_title %}
-                    <h4 class="mb-5 {{ section.settings.collection_card_title_font_size }}">
-                      <a href="{{ collection.url }}">{{ title }}</a>
-                    </h4>
+                    <span class="mb-5 {{ section.settings.collection_card_title_font_size }} fw-bold">
+                      {{ title }}
+                    </span>
                   {% endif %}                  
                   <div class="product-category">
                     {% if collection.metafields.custom.release_date %}
@@ -66,13 +64,8 @@
                   </div>
                 </div>
               </div>
-
-
-              <a href="{{ collection.url }}" class="d-table ms-auto d-none">
-                Ver colección <i class="fi-rs-arrow-small-right"></i>
-              </a>
             </div>
-          </div>
+          </a>
         </div>
       {% endfor %}
     </div>

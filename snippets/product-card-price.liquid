@@ -9,7 +9,7 @@
   {% render 'product-card-price' product: product  %}
 {% endcomment %}
 
-<p class="product-card-price product-price mb-4 fs-5">
+<p class="product-card-price product-price ">
   {% if product.compare_at_price > product.price %}
     <span class="product-card-price-final product-price-final-sale">
       <span class="visually-hidden">
@@ -20,7 +20,7 @@
         <span class="visually-hidden">
           {{ 'product.regular_price' | t }} 
         </span>
-        <small style="font-size: 0.8em;">
+        <small >
           {{ product.compare_at_price | money_without_trailing_zeros }}
         </small>
       </s>      

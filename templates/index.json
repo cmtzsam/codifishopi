@@ -16,7 +16,6 @@
     },
     "featured_products_nXJKQn": {
       "type": "featured-products",
-      "disabled": true,
       "settings": {
         "bg_color": "bg-body",
         "bg_opacity": 100,
@@ -28,7 +27,7 @@
         "border_opacity": 100,
         "container_max_width": "",
         "products": [],
-        "collection": "latest",
+        "collection": "destined-rivals",
         "limit": 8,
         "recommended_mode": true,
         "recommended_mode_intent": "related",
@@ -264,6 +263,7 @@
         "item_qp7jPa": {
           "type": "item",
           "settings": {
+            "img": "shopify://shop_images/Recurso_4.png",
             "title": "First Card",
             "description": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec massa velit, sagittis nec pharetra id, iaculis non sapien.</p>",
             "btn_text": "Learn more",
@@ -572,7 +572,17 @@
     },
     "blog_slider_UUweWT": {
       "type": "blog-slider",
-      "disabled": true,
+      "blocks": {
+        "article_c8jxmF": {
+          "type": "article",
+          "settings": {
+            "article": "noticias/que-es-hubspot-y-como-ayuda-a-vender-mas-en-tu-negocio-online"
+          }
+        }
+      },
+      "block_order": [
+        "article_c8jxmF"
+      ],
       "settings": {
         "bg_color": "bg-body",
         "bg_opacity": 100,
@@ -583,10 +593,10 @@
         "border_color": "border-body",
         "border_opacity": 100,
         "container_max_width": "",
-        "header_title": "Latest Posts",
+        "header_title": "Últimos artículos",
         "header_title_font_size": "h3",
         "header_description": "<p>Add on optional description for this section</p>",
-        "header_description_font_size": "fs-md",
+        "header_description_font_size": "fs-lg",
         "slider_speed": 300,
         "slider_navigation": true,
         "slider_pagination": true,
@@ -612,7 +622,6 @@
     },
     "separator_pMbxtB": {
       "type": "separator",
-      "disabled": true,
       "settings": {
         "bg_color": "bg-secondary",
         "bg_opacity": 25,
