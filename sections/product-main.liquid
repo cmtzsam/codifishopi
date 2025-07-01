@@ -31,12 +31,12 @@
         {{ 'general.accessibility.skip_product_content' | t }}
       </a>      
       <div class="row">
-        <div class="col-12 col-md-6 col-lg-6">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-5">
           {% render 'product-block-media-gallery' %}
         </div>
-        <div class="col-12 col-md-6 col-lg-6">
+        <div class="col-12 col-sm-12 col-md-6 col-lg-4">
           <div class="detail-info pr-30 pl-30">
-            <div id="product-inner-{{ product.id }}">
+            <div id="product-inner-{{ product.id }}" class="productInner">
               <product-form>
                 {% form 'product', product, data-productid: product.id, data-variants: variants_json %}
                   <input type="hidden" name="id" data-productid="{{ product.id }}" value="{{ product.selected_or_first_available_variant.id }}">
@@ -69,76 +69,77 @@
                       endcase
                     endfor
                   %}
-                {% endform %}
-                <div class="primary-sidebar ">
-                  <div class="row">
-                    <div class="col col-12 d-flex my-2">
-                      <div class="sidebar-widget widget-category-2 w-100">
-                        <h5 class="section-title style-1 mb-30">Acerca del producto</h5>
-                        <ul class="row justify-content-center gap-5">
-                          {% assign all_types = '' %}
-                          {% for product in collections.all.products %}
-                            {% unless all_types contains product.type %}
-                              {% assign all_types = all_types | append: product.type | append: '||' %}
-                            {% endunless %}
-                          {% endfor %}
-                          {% assign types_array = all_types | split: '||' %}
-                          {% for type in types_array %}
-                            {% unless type == blank %}
-                              <li class="col col-12 col-md-5 col-lg-5 my-0">
-                                
-                                <a href="{{ routes.collections_url }}/{{ type | handle }}">
-                                  {% comment %} <img src="https://placehold.co/30" alt=""> {% endcomment %}
-                                  Categoría: <strong>&nbsp;{{ type }}</strong>
-                                </a>
-                              </li>
-                            {% endunless %}
-                          {% endfor %}
-                          <li class="col col-12 col-md-5 col-lg-5 my-0">
-                            {% if product.metafields.custom.expansion %}
-                              <a href="{{ routes.collections_url }}/{{ product.metafields.custom.expansion | handle }}">
-                                  Expansión: 
-                                  <strong>&nbsp;{{ product.metafields.custom.expansion }}</strong>
-                                </a>
-                                {% else %}
-                                No disponible
-                                {% endif %}
-                          </li>
-                          {% comment %} <li class="col col-12 col-md-5 col-lg-5">
-                            
-                              <a >
-                                  Fecha de salida: 
-                                  {% if product.metafields.custom.fechadesalida %}
-                                  <strong>&nbsp;{{ product.metafields.custom.fechadesalida }}</strong>
-                                {% else %}
-                                  No disponible
-                                  {% endif %}
-                                </a>
-                          </li> {% endcomment %}
-                          </ul>
-                      </div>                           
-                    </div>
-                    {% comment %} <div class="col col-12 col-md-6 col-lg-6 my-2">
-                      <div class="banner-img w-100">
-                          <img src="https://placehold.co/345x362" alt="" />
-                          <div class="banner-text">
-                              <span>Oganic</span>
-                              <h4>
-                                  Save 17% <br />
-                                  on <span class="text-brand">Oganic</span><br />
-                                  Juice
-                              </h4>
-                          </div>
-                      </div>                            
-                    </div> {% endcomment %}
-                  </div>
-           
-     
-                </div>                
+                {% endform %}             
               </product-form>
             </div>
           </div>
 
+        </div>
+        <div class="col-12 col-sm-12 col-md-6 col-lg-3">
+          <div class="primary-sidebar ">
+            <div class="row">
+              <div class="col col-12 d-flex my-2">
+                <div class="sidebar-widget widget-category-2 w-100">
+                  <h5 class="section-title style-1">Acerca</h5>
+                  <ul >
+                    {% assign all_types = '' %}
+                    {% for product in collections.all.products %}
+                      {% unless all_types contains product.type %}
+                        {% assign all_types = all_types | append: product.type | append: '||' %}
+                      {% endunless %}
+                    {% endfor %}
+                    {% assign types_array = all_types | split: '||' %}
+                    {% for type in types_array %}
+                      {% unless type == blank %}
+                        <li >
+                          
+                          <a href="{{ routes.collections_url }}/{{ type | handle }}" class="d-block">
+                            {% comment %} <img src="https://placehold.co/30" alt=""> {% endcomment %}
+                            Categoría: 
+                            <strong class="d-block">&nbsp;{{ type }}</strong>
+                          </a>
+                        </li>
+                      {% endunless %}
+                    {% endfor %}
+                    {% if product.metafields.custom.expansion %}
+                    <li >
+                        <a href="{{ routes.collections_url }}/{{ product.metafields.custom.expansion | handle }}" class="d-block">
+                          Expansión: 
+                          <strong class="d-block">&nbsp;{{ product.metafields.custom.expansion }}</strong>
+                        </a>
+                      </li>
+                    {% endif %}
+                    {% comment %} <li class="col col-12 col-md-5 col-lg-5">
+                      
+                        <a >
+                            Fecha de salida:  
+                            {% if product.metafields.custom.fechadesalida %}
+                            <strong>&nbsp;{{ product.metafields.custom.fechadesalida }}</strong>
+                          {% else %}
+                            No disponible
+                            {% endif %}
+                          </a>
+                    </li> {% endcomment %}
+                    </ul>
+                </div>                           
+              </div>
+              {% comment %} <div class="col col-12 col-md-6 col-lg-6 my-2">
+                <div class="banner-img w-100">
+                    <img src="https://placehold.co/345x362" alt="" />
+                    <div class="banner-text">
+                        <span>Oganic</span>
+                        <h4>
+                            Save 17% <br />
+                            on <span class="text-brand">Oganic</span><br />
+                            Juice
+                        </h4>
+                    </div>
+                </div>                            
+              </div> {% endcomment %}
+            </div>
+      
+
+          </div>   
         </div>
       </div>
     </div>

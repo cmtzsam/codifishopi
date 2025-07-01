@@ -47,14 +47,6 @@ footer{
 }
 
 
-
-.detail-info .product-price .old-price{
-  color: $color-brand-dark;
-}
-.detail-info .product-price .save-price{
-  color: white;
-  background-color: $color-hot;
-}
 .product-options .size-buttons input + label{
   font-weight: 600;
   font-size: 14px;
@@ -63,7 +55,8 @@ footer{
   border-color: $color-brand-dark;
 }
 .product-options .size-buttons input:checked + label{
-  background-color: $color-brand-dark;
+  background-color: #e3f2fd!important;
+  color: #1976d2 !important;
   border-color: $color-brand-dark;
 }
 .qty-input-wrapper .form-control{
@@ -71,7 +64,8 @@ footer{
   border-radius: 0;
 }
 .qty-input-wrapper .btn{
-  background-color: $color-brand-dark;
+  background-color: #e3f2fd!important;
+  color: #1976d2 !important;
   border-color: $color-brand-dark;
   border-radius: 0;
   &:active,
@@ -81,7 +75,7 @@ footer{
     border-color: $color-brand;
   }
   &[disabled]{
-    background-color: white;
+    background-color: white!important;
     border: 1px solid #f0e9fd;
   }
 }
@@ -121,7 +115,26 @@ button[type=submit]{
     }
   }
   .footCard{
-    padding: 40px 0 10px;
+    padding: 0 0 10px;
+    .product-card-price-final{
+      position: relative;
+      .product-card-price-compare{
+        position: absolute!important;
+        top: -25px;
+        left: 0px!important;
+        .price-value{
+          font-size: 12px;
+          color: $color-hot;
+        }
+      }
+      .price-value{
+        white-space: nowrap;
+        .currency-symbol{
+          font-size: .5em;
+          margin-left: 3px;
+        }
+      }
+    }
     product-form,
     form{
       width: 100%;
@@ -182,6 +195,7 @@ button[type=submit]{
       color: #495057;
       font-size: 18px;
       font-weight: 500;
+      padding-bottom: 40px;
     }
   }
   .product-badges.product-badges-position{
@@ -319,13 +333,126 @@ button[type=submit]{
 
 
 .product-main{
-  .title-detail{
-    color: #495057;
-  }
-  .product-price{
-    font-family: $font-text;
-    s{
-      color: $color-hot;
+  .product-info{
+    padding: 25px;
+    @media (max-width: 600px){
+      border: 1px solid #ececec;
+    }
+    .shop_info_tab{
+      margin-top: 0;
+      padding: 30px 30px 10px;
+      @media (max-width: 600px){
+        padding: 0;
+      }
+      p{
+        line-height: 1.75;
+        color: #495057;
+        font-size: 1rem;
+        margin: 15px 0;
+      }
     }
   }
+  .detail-info{
+    .productInner{
+      .title-detail{
+        margin: 0;
+        padding: 20px 0 !important;
+        color: #495057!important;
+        line-height: 1.15;
+        display: block;
+        font-size: 40px;
+      }
+
+      .product-price{
+        font-family: $font-text;
+        margin: 0;
+        padding: 0!important;
+        position: relative;
+        .product-price-final{
+          color: $color-brand-2!important;
+          font-size: 3.25rem;
+          .currency-symbol{
+            font-size: 13px;
+            top: -20px;
+            display: inline-block;
+            position: relative;
+          }        
+        }
+        s{
+          color: $color-hot;
+        }
+      }
+      .short-desc{
+        padding: 20px 0 10px;
+        p{
+          line-height: 1.75;
+          font-size: .95rem;
+          margin: 15px 0;
+        }
+      }
+      .btn-atc{
+        color: #1976d2 !important;
+        background-color: #e3f2fd;
+        border-radius: 0;
+        border: 0;
+        box-shadow: none;
+        display: block;
+        width: 100%;
+        max-width: 120px;
+        display: block;
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px!important;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 700;
+        &:hover,
+        &[type=submit]:hover{
+          background-color: #e3f2fd!important;
+        }
+      }
+    }
+  }
+
+
+  .primary-sidebar {
+    .sidebar-widget {
+      padding: 20px;
+      .section-title{
+        margin: 0 0 15px;
+        padding: 0 0 15px;
+        font-size: 20px;        
+      }
+      ul{
+        li{
+          padding: 0;
+          border: 0;
+          border-radius: 0;
+          box-shadow: none!important;
+          display: block;
+          width: 100%;
+          a{
+            font-size: 13px;
+            border: 1px solid #f2f3f4;
+            display: block;
+            border-radius: 5px;
+            padding: 10px;
+            &:hover{
+              border: 1px solid #8aaac4;
+              box-shadow: 5px 5px 15px rgba(0, 0, 0, .05);              
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+.detail-info .product-price .old-price{
+  color: $color-brand-dark;
+}
+.detail-info .product-price .save-price{
+  color: white;
+  background-color: $color-hot;
 }

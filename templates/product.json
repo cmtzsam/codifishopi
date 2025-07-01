@@ -31,13 +31,14 @@
         "40d3cdd3-9d78-4f15-b346-c3f46d49f7b1": {
           "type": "title",
           "settings": {
-            "title_font_size": "h2",
-            "pt": 3,
-            "pb": 2
+            "title_font_size": "h1",
+            "pt": 0,
+            "pb": 0
           }
         },
         "bf49a5ff-d625-4485-a09c-44d883547f90": {
           "type": "richtext",
+          "disabled": true,
           "settings": {
             "title": "",
             "title_font_size": "h6",
@@ -176,6 +177,7 @@
         },
         "separator_cWJNG3": {
           "type": "separator",
+          "disabled": true,
           "settings": {
             "bg_color": "bg-body",
             "bg_opacity": 10,
@@ -262,24 +264,11 @@
         "pt": 2,
         "pb": 11
       }
-    },
-    "20426219-2b04-4ec4-9f23-1ed81a76c181": {
-      "type": "separator",
-      "settings": {
-        "bg_color": "bg-body text-body",
-        "bg_opacity": 10,
-        "height": 1,
-        "container": "container-fluid",
-        "container_max_width": "",
-        "pt": 0,
-        "pb": 0
-      }
     }
   },
   "order": [
     "8f4f1b58-133b-491a-a7b2-8bf2e6fbc583",
     "1710322973d29fae05",
-    "8b8acb35-e69e-4471-a6cb-d0a09485fb41",
-    "20426219-2b04-4ec4-9f23-1ed81a76c181"
+    "8b8acb35-e69e-4471-a6cb-d0a09485fb41"
   ]
 }

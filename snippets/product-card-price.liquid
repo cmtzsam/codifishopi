@@ -9,25 +9,38 @@
   {% render 'product-card-price' product: product  %}
 {% endcomment %}
 
-<p class="product-card-price product-price ">
-  {% if product.compare_at_price > product.price %}
+{%- assign raw_price = product.price | money_without_currency -%}
+{%- assign currency_code = shop.currency | downcase -%} 
+
+<p class="product-card-price product-price">
+  {%- if product.compare_at_price > product.price -%}
     <span class="product-card-price-final product-price-final-sale">
-      <span class="visually-hidden">
-        {{ 'product.sale_price' | t }} 
-      </span>
-      {{ product.price | money_without_trailing_zeros }}
+      <span class="visually-hidden">{{ 'product.sale_price' | t }}</span>
+
       <s class="product-card-price-compare">
-        <span class="visually-hidden">
-          {{ 'product.regular_price' | t }} 
-        </span>
-        <small >
-          {{ product.compare_at_price | money_without_trailing_zeros }}
+        <span class="visually-hidden">{{ 'product.regular_price' | t }}</span>
+        {%- assign raw_compare = product.compare_at_price | money_without_currency -%}
+        <small>
+          <span class="price-value">
+            $ {{ raw_compare }}
+            <span class="currency-symbol">{{ currency_code | upcase }}</span>
+          </span>
+          
         </small>
       </s>      
+      <span class="price-value">
+        $ {{ raw_price }}
+        <span class="currency-symbol">{{ currency_code | upcase }}</span>
+      </span>
+      
     </span>
-  {% else %}
+  {%- else -%}
     <span class="product-card-price-final">
-      {{ product.price | money_without_trailing_zeros }}
+      <span class="price-value">
+        $ {{ raw_price }}
+        <span class="currency-symbol">{{ currency_code | upcase }}</span>
+      </span>
+      
     </span>
-  {% endif %}
+  {%- endif -%}
 </p>

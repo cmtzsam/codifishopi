@@ -11,6 +11,19 @@
   "type": "footer",
   "name": "Footer Group",
   "sections": {
+    "separator_LMWDQb": {
+      "type": "separator",
+      "name": "Separator",
+      "settings": {
+        "bg_color": "bg-secondary",
+        "bg_opacity": 25,
+        "height": 1,
+        "container": "container",
+        "container_max_width": "",
+        "pt": 10,
+        "pb": 10
+      }
+    },
     "newsletter_fL4LWF": {
       "type": "newsletter",
       "disabled": true,
@@ -86,6 +99,7 @@
     }
   },
   "order": [
+    "separator_LMWDQb",
     "newsletter_fL4LWF",
     "footer"
   ]

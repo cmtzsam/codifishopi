@@ -622,6 +622,7 @@
     },
     "separator_pMbxtB": {
       "type": "separator",
+      "disabled": true,
       "settings": {
         "bg_color": "bg-secondary",
         "bg_opacity": 25,
