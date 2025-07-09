@@ -48,7 +48,7 @@
       {% if current_variant.available %}
         {{ 'product.add_to_cart' | t }}
       {% else %}
-        {{ 'product.sold_out' | t }}
+        {% comment %} {{ 'product.sold_out' | t }} {% endcomment %} Agotado
       {% endif %}
     </button>
   </div>

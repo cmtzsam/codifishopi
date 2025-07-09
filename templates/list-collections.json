@@ -51,11 +51,128 @@
             "collection": "journey-together",
             "title": ""
           }
+        },
+        "collection_a8bHjQ": {
+          "type": "collection",
+          "settings": {
+            "collection": "prismatic-evolutions",
+            "img": "{{ block.settings.collection.image }}",
+            "title": ""
+          }
+        },
+        "collection_P9x4xA": {
+          "type": "collection",
+          "settings": {
+            "collection": "surging-sparks",
+            "img": "{{ block.settings.collection.image }}",
+            "title": "{{ block.settings.collection.title }}"
+          }
+        },
+        "collection_fTgMRV": {
+          "type": "collection",
+          "settings": {
+            "collection": "stellar-crown",
+            "img": "{{ block.settings.collection.image }}",
+            "title": "{{ block.settings.collection.title }}"
+          }
+        },
+        "collection_rN4fHA": {
+          "type": "collection",
+          "settings": {
+            "collection": "shrouded-fable",
+            "img": "{{ block.settings.collection.image }}",
+            "title": ""
+          }
+        },
+        "collection_CPhDLK": {
+          "type": "collection",
+          "settings": {
+            "collection": "twilight-masquerade",
+            "img": "{{ block.settings.collection.image }}",
+            "title": "{{ block.settings.collection.title }}"
+          }
+        },
+        "collection_E6BaRG": {
+          "type": "collection",
+          "settings": {
+            "collection": "temporal-forces",
+            "img": "{{ block.settings.collection.image }}",
+            "title": "{{ block.settings.collection.title }}"
+          }
+        },
+        "collection_EhtmGa": {
+          "type": "collection",
+          "settings": {
+            "collection": "paldea-fates",
+            "img": "{{ block.settings.collection.image }}",
+            "title": "{{ block.settings.collection.title }}"
+          }
+        },
+        "collection_CF9X6i": {
+          "type": "collection",
+          "settings": {
+            "collection": "paradox-rift",
+            "img": "{{ block.settings.collection.image }}",
+            "title": "{{ block.settings.collection.title }}"
+          }
+        },
+        "collection_CnYWKX": {
+          "type": "collection",
+          "settings": {
+            "collection": "pokemon-151",
+            "img": "{{ block.settings.collection.image }}",
+            "title": "{{ block.settings.collection.title }}"
+          }
+        },
+        "collection_KnkwD8": {
+          "type": "collection",
+          "settings": {
+            "collection": "obsidian-flames",
+            "img": "{{ block.settings.collection.image }}",
+            "title": "{{ block.settings.collection.title }}"
+          }
+        },
+        "collection_6T8zBn": {
+          "type": "collection",
+          "settings": {
+            "collection": "paldea-evolve",
+            "img": "{{ block.settings.collection.image }}",
+            "title": "{{ block.settings.collection.title }}"
+          }
+        },
+        "collection_trWLW7": {
+          "type": "collection",
+          "settings": {
+            "collection": "scarlet-and-violet-base",
+            "img": "{{ block.settings.collection.image }}",
+            "title": "{{ block.settings.collection.title }}"
+          }
+        },
+        "collection_Qiqraw": {
+          "type": "collection",
+          "settings": {
+            "collection": "crown-zenith",
+            "img": "{{ block.settings.collection.image }}",
+            "title": ""
+          }
         }
       },
       "block_order": [
         "collection_ALmyFe",
-        "collection_XXhJLL"
+        "collection_XXhJLL",
+        "collection_a8bHjQ",
+        "collection_P9x4xA",
+        "collection_fTgMRV",
+        "collection_rN4fHA",
+        "collection_CPhDLK",
+        "collection_E6BaRG",
+        "collection_EhtmGa",
+        "collection_CF9X6i",
+        "collection_CnYWKX",
+        "collection_KnkwD8",
+        "collection_6T8zBn",
+        "collection_trWLW7",
+        "collection_Qiqraw"
       ],
       "name": "Featured collections",
       "settings": {

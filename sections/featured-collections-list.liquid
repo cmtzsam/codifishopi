@@ -26,7 +26,7 @@
       </div>
     {%- endif -%}
 
-    <div class="row vendor-grid">
+    <div class="row vendor-grid" style="gap: 30px 0;">
       {% for block in section.blocks %}
         {% assign collection = block.settings.collection %}
         {% assign title = block.settings.title | default: collection.title %}

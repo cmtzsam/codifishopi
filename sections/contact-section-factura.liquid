@@ -1,0 +1,159 @@
+<section class="mb-50 pt-20">
+  <div class="container pt-20" style="max-width: 1024px; margin: 0 auto;">
+    <div class="row pt-20">
+      <div class="col-xl-8">
+        <div class="contact-from-area padding-20-row-col">
+            <h5 class="text-brand mb-10">Formulario para facturar</h5>
+            <h2 class="mb-10">Envíanos tus datos</h2>
+            <p class="text-muted mb-30 font-sm">Con esta información podemos emitir tu factura. Los campos obligatorios están marcados con *</p>
+          
+        {% form 'contact' %}
+          {% if form.posted_successfully? %}
+            <p class="form-success alert alert-success mb-5" role="alert">
+              {{ 'general.contact_form.success' | t }}
+            </p>
+          {% endif %}
+          {{ form.errors | default_errors }}
+          <div class="form-floating  mb-5">
+            <input 
+              id="contact-form-name"
+              class="form-control" 
+              type="text" 
+              name="contact[name]"
+              value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"  
+              placeholder="{{ 'general.contact_form.name' | t }}"
+              required>
+            <label for="contact-form-name">
+              {{ 'general.contact_form.name' | t }}
+            </label>
+          </div>
+          <div class="form-floating  mb-5">
+            <input 
+              id="contact-form-email"
+              class="form-control" 
+              type="email" 
+              name="contact[email]"
+              value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"  
+              placeholder="{{ 'general.contact_form.email' | t }}"
+              spellcheck="false"
+              autocapitalize="off"
+              required>
+            <label for="contact-form-email">
+              {{ 'general.contact_form.email' | t }}
+            </label>
+          </div>
+          <div class="form-floating  mb-5">
+            <input 
+              id="contact-form-phone"
+              class="form-control" 
+              type="tel" 
+              name="contact[phone]"
+              value="{{ customer.phone }}"  
+              placeholder="{{ 'general.contact_form.phone' | t }}"
+              pattern="[0-9\-]*"
+              autocomplete="tel">
+            <label for="contact-form-phone">
+              {{ 'general.contact_form.phone' | t }}
+            </label>
+          </div>
+          <div class="form-floating mb-5">
+            <input 
+              id="contact-form-razon"
+              class="form-control" 
+              type="text" 
+              name="contact[razonsocial]"
+              value=""  
+              placeholder="razon social"
+              spellcheck="false"
+              autocapitalize="off"
+              required>
+            <label for="contact-form-message">
+              Razón Social
+            </label>
+          </div>             
+          <div class="form-floating mb-5">
+            <input 
+              id="contact-form-rfc"
+              class="form-control" 
+              type="text" 
+              name="contact[rfc]"
+              value=""  
+              placeholder="RFC"
+              spellcheck="false"
+              autocapitalize="off"
+              required>
+            <label for="contact-form-message">
+              RFC
+            </label>
+          </div>          
+          <div class="form-floating mb-5">
+            <input 
+              id="contact-form-regimen"
+              class="form-control" 
+              type="text" 
+              name="contact[regimen]"
+              value=""  
+              placeholder="Regimen fiscal"
+              spellcheck="false"
+              autocapitalize="off"
+              required>
+            <label for="contact-form-message">
+              Regimén fiscal
+            </label>
+          </div>          
+          <div class="form-floating mb-5">
+            <input 
+              id="contact-form-uso"
+              class="form-control" 
+              type="text" 
+              name="contact[uso]"
+              value=""  
+              placeholder="usofiscal"
+              spellcheck="false"
+              autocapitalize="off"
+              required>
+            <label for="contact-form-message">
+              Uso Fiscal
+            </label>
+          </div>          
+          <div class="form-floating mb-5">
+            <input 
+              id="contact-form-pedido"
+              class="form-control" 
+              type="text" 
+              name="contact[pedido]"
+              value=""  
+              placeholder="pedido"
+              spellcheck="false"
+              autocapitalize="off"
+              required>
+            <label for="contact-form-message">
+              Número de pedido
+            </label>
+          </div>          
+
+          <button 
+              type="submit" 
+              class="btn btn-primary mt-4">
+              {{ 'general.contact_form.send' | t }}
+          </button>
+        {% endform %}          
+
+        </div>
+      </div>
+      <div class="col-lg-4 pl-50 d-lg-block d-none">
+        <img class="border-radius-15" src="https://cdn.shopify.com/s/files/1/0763/2545/4045/files/pokemon-wallpaper-1.webp?v=1751935445" alt="Envíanos un mensaje" width="332" height="597" style="max-width: 100%; height: auto;">
+      </div>
+    </div>
+  </div>
+</section>
+{% schema %}
+{
+  "name": "contact-section",
+  "presets": [
+    {
+      "name": "Contacto dos secciones facturar",
+    }
+  ]
+}
+{% endschema %}

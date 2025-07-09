@@ -52,8 +52,8 @@
         "filters_btn_color": "btn-outline-secondary",
         "show_sort_by": true,
         "sort_by_btn_color": "btn-outline-secondary",
-        "breakpoint_mobile": 2,
-        "breakpoint_tablet": 3,
+        "breakpoint_mobile": 1,
+        "breakpoint_tablet": 2,
         "breakpoint_desktop": 4,
         "pt": 10,
         "pb": 10

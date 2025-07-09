@@ -16,7 +16,7 @@
       {% if product.available == false %}
         <span class="product-sold-out-badge badge"
           {% if current_variant.available %}hidden{% endif %}>
-          {{ 'product.sold_out' | t }}
+          {% comment %} {{ 'product.sold_out' | t }} {% endcomment %} Agotado
         </span>  
       {% elsif product.compare_at_price > product.price %}
         <span 

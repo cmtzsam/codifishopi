@@ -5,8 +5,38 @@
 .archive-header {
 	background:url(../imgs/blog/header-bg.png) no-repeat center center;
 	border-radius: 20px;
-	padding: 70px 80px;
+	padding: 0px 80px;
 	background-size: cover;
+	position: relative;
+	overflow: hidden;
+	&::after{
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(0,0,0,0.5);
+		z-index: 1;
+	}
+	&.defaultbanner{
+		background-position: center center;
+		background-repeat: repeat;
+		background-size: auto;
+		background-image: url('https://cdn.shopify.com/s/files/1/0763/2545/4045/files/grey-pattern.png?v=1751762539');
+		&::after{
+			background: rgba(0,0,0,0.3);
+		}
+	}
+	.row{
+		height: 360px;
+		position: relative;
+		z-index: 2;
+		@media (max-width: 560px){
+			height: auto;
+			padding: 0px;
+		}
+	}
 }
 .tags-list {
 	li {
@@ -57,12 +87,12 @@
     text-rendering: optimizeLegibility;
 	color: $color-heading;
 	font-size: $font-lg;
-    h1{font-size:56px;line-height:72px;margin-bottom: 32px;}
-    h2{font-size:48px;line-height:64px;margin-bottom: 30px;}
-    h3{font-size:36px;line-height:48px;margin-bottom: 28px;}
-    h4{font-size:24px;line-height:32px;margin-bottom: 26px;}
-    h5{font-size:20px;line-height:24px;margin-bottom: 24px;}
-    h6{font-size:14px;line-height:24px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom: 22px;}
+    h1{font-size:40px;line-height:72px;margin-bottom: 32px;}
+    h2{font-size:30px;line-height:64px;margin-bottom: 30px;}
+    h3{font-size:24px;line-height:48px;margin-bottom: 28px;}
+    h4{font-size:20px;line-height:32px;margin-bottom: 26px;}
+    h5{font-size:18px;line-height:24px;margin-bottom: 24px;}
+    h6{font-size:16px;line-height:24px;letter-spacing:0.5px;text-transform:uppercase;margin-bottom: 22px;}
     p{margin-bottom:1.2em;font-weight:400;}
 
     ul {

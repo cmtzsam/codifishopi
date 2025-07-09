@@ -2,17 +2,20 @@
   id="search-main-{{ collection.id }}" 
   class="
     search-main
-  ">
+  "
+  style="padding-top: 50px"
+  >
   <header class="section-header text-center mb-9">
     <div 
       class="container" 
       style="max-width: 600px;">
       <h1 class="title {{ section.settings.header_title_font_size }}">
-        {% if search.performed %}
+        {% comment %} {% if search.performed %}
           {{ 'general.search.search_page.title_search_performed' | t }}
         {% else %}
           {{ 'general.search.search_page.title' | t }}
-        {% endif %}
+        {% endif %} {% endcomment %}
+        Resultados de la busqueda
       </h1>
       <form action="{{ routes.search_url }}" class="search-form" method="get" role="search">
         <input name="options[prefix]" type="hidden" value="last">

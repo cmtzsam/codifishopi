@@ -9,13 +9,13 @@
  */
 {
   "sections": {
-    "contact_section_QMe9BD": {
-      "type": "contact-section",
-      "name": "Contacto dos secciones",
+    "contact_section_factura_K4znyk": {
+      "type": "contact-section-factura",
+      "name": "Contacto dos secciones facturar",
       "settings": {}
     }
   },
   "order": [
-    "contact_section_QMe9BD"
+    "contact_section_factura_K4znyk"
   ]
 }

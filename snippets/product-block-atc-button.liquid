@@ -10,6 +10,7 @@
   {{ block.shopify_attributes }}>
   <div class="d-flex pt-15 mt-15">
     {% if block.settings.show_qty_field %}
+      {% if current_variant.available %}
       <div 
         class="qty-input-wrapper me-4 d-flex"  
         role="group" 
@@ -37,9 +38,10 @@
           {% render 'svg-icons', icon: 'plus', size: 14 %}
         </button>
       </div>
+      {% endif %}
     {% endif %}
     <button
-      class="btn btn-atc {{ block.settings.atc_btn_color }} {{ block.settings.atc_btn_size }}"
+      class="btn btn-atc {{ block.settings.atc_btn_color }} {{ block.settings.atc_btn_size }}  {% if current_variant.available == false %} disabled{% endif %}"
       type="submit"
       name="add"
       {% unless current_variant.available %}
@@ -48,7 +50,7 @@
       {% if current_variant.available %}
         {{ 'product.add_to_cart' | t }}
       {% else %}
-        {{ 'product.sold_out' | t }}
+        {% comment %} {{ 'product.sold_out' | t }} {% endcomment %} Agotado
       {% endif %}
     </button>
   </div>

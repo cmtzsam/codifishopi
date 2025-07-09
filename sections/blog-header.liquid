@@ -19,34 +19,40 @@
 >
                 <div class="page-header mt-30 mb-30">
                   <div class="container">
-                    <div class="archive-header" style="background-image: url(https://placehold.co/1920x600);">
+                    <div class="archive-header" style="background-image: url(https://cdn.shopify.com/s/files/1/0763/2545/4045/files/banner-blog.jpg?v=1751930901);">
                         <div class="row align-items-center">
                             <div class="col-xl-3">
                               {% if current_tags %}
-                                <h1 class="mb-15 {{ section.settings.title_font_size }}">
-                                  <span>{{ blog.title }} - <span style="text-transform: capitalize">{{ current_tags | join: ', ' }}</span></span>
+                              <div class="breadcrumb text-white d-flex">
+                                <a class="text-white" href="{{ routes.root_url }}" rel="nofollow">Inicio</a>
+                                <span> / </span>
+                                <a class="text-white" href="{{ blog.url }}">Blog</a>
+                                  
+                                </div>
+                              {% endif %}                              
+                              {% if current_tags %}
+                                <h1 class="mb-15 text-start {{ section.settings.title_font_size }} text-white">
+                                  <span class="text-white"><span style="text-transform: capitalize">{{ current_tags | join: ', ' }}</span></span>
                                 </h1>
                               {% else %}
-                                <h1 class="mb-15 {{ section.settings.title_font_size }}">
+                                <h1 class="mb-15 text-start {{ section.settings.title_font_size }} text-white">
                                   <span>{{ blog.title }}</span>
                                 </h1>                                
                               {% endif %}
                               {% if current_tags == blank %}
                                 {% unless section.settings.description == blank %}
-                                  <div class="description rte mb-0 {{ section.settings.description_font_size }}">
+                                  <style>
+                                    .description p{
+                                      color: inherit;
+                                      text-align: left;
+                                    }
+                                  </style>
+                                  <div class="description rte mb-0 {{ section.settings.description_font_size }} text-white">
                                     {{ section.settings.description }}
                                   </div>
                                 {% endunless %}
                               {% endif %}
-                              {% if current_tags %}
-                              <div class="breadcrumb">
-                                <a href="{{ routes.root_url }}" rel="nofollow">Inicio</a>
-                                <span> / </span>
-                                <a href="{{ blog.url }}">Blog</a>
-                                  <span> / </span>
-                                  {{ current_tags | join: ', ' }}
-                                </div>
-                              {% endif %}
+
                             </div>
                             <div class="col-xl-9 text-end d-none d-xl-block">
                                 {% assign sorted_tags = blog.all_tags | sort_natural: 'last' | reverse %}

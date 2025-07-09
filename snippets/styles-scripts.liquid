@@ -31,7 +31,7 @@
         add_to_cart: '{{ 'product.add_to_cart' | t }}',
         buy_it_now: '{{ 'product.buy_it_now' | t }}',
         save: '{{ 'product.save' | t }}',
-        sold_out: '{{ 'product.sold_out' | t }}',
+        sold_out: '{% comment %} {{ 'product.sold_out' | t }} {% endcomment %} Agotado',
         unavilable: '{{ 'product.unavilable' | t }}',
         quantity: '{{ 'product.quantity' | t }}',
         unavailable: '{{ 'product.unavailable' | t }}',

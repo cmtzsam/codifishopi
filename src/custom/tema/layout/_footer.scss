@@ -25,21 +25,38 @@ footer {
 }
 .newsletter {
 	position: relative;
+    overflow: hidden;
     .newsletter-inner {
-        background: url(../imgs/banner/banner-10.png) no-repeat center; 
+        background: linear-gradient(#d3ebff, #ffffff);
+        // background: url(../imgs/banner/banner-10.png) no-repeat center; 
         background-size: cover;     
         padding: 84px 78px;
         clear: both;
-        display: table;
+        display: flex;
+        align-items: center;
         width: 100%;
         border-radius: 20px;
         overflow: hidden;
         min-height: 230px;
+        @media (max-width: 880px){
+            padding: 40px;
+            display: block;
+        }
         img {
             position: absolute;
             right: 50px;
             bottom: 0;
             max-width: 40%;
+            @media (max-width: 880px){
+                position: relative;
+                width: 280px!important;
+                right: 0;
+            }
+            @media (max-width: 600px){
+                right: 0;
+                margin: 0 auto;
+                display: block;                
+            }
         }
         .newsletter-content {
             p {

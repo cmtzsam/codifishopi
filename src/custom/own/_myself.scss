@@ -1,5 +1,16 @@
 @use '../tema/abstracts/_variables.scss' as *;
 
+h1{
+  @media(max-width: 480px){
+    font-size: 36px;
+  }
+  &.title-detail{
+    @media(max-width: 480px){
+      font-size: 30px!important;
+    }
+  }
+}
+
 .bg-color-brand{
   background-color: $color-brand !important;
 }
@@ -84,6 +95,10 @@ button[type=submit]{
   border-radius: 0;
 }
 .customCard{
+  &.soldout{
+    // filter: grayscale(1);
+    // border-color: #333; 
+  }
   &--vendorList{
     position: absolute;
     z-index: 99;
@@ -99,7 +114,7 @@ button[type=submit]{
       font-weight: 600;
       font-family: $font-heading;
       padding: 2.5px 10px;
-      border-radius: 3px;
+      border-radius: 10px;
     }
   }
   &--collectionsList{
@@ -163,6 +178,10 @@ button[type=submit]{
       &[type=submit]:hover{
         background-color: #e3f2fd!important;
       }
+      &.disabled{
+        background-color: #ddd;
+        color: #495057!important;
+      }      
     }
   }
 }
@@ -176,12 +195,14 @@ button[type=submit]{
       a{
         display: flex;
         justify-content: center;
-        max-height: 250px;
+        align-items: center;
+        height: 250px;
         overflow: hidden;
         img{
           object-fit: contain;
           width: auto;
           max-width: 100%;
+          height: auto;
           display: block;
           margin: 0 auto;
         }
@@ -353,14 +374,15 @@ button[type=submit]{
     }
   }
   .detail-info{
+    padding-top: 20px;
     .productInner{
       .title-detail{
         margin: 0;
-        padding: 20px 0 !important;
+        padding: 20px 0 30px!important;
         color: #495057!important;
         line-height: 1.15;
         display: block;
-        font-size: 40px;
+        font-size: 30px;
       }
 
       .product-price{
@@ -370,7 +392,8 @@ button[type=submit]{
         position: relative;
         .product-price-final{
           color: $color-brand-2!important;
-          font-size: 3.25rem;
+          font-size: 2.2rem;
+          white-space: nowrap;
           .currency-symbol{
             font-size: 13px;
             top: -20px;
@@ -380,6 +403,8 @@ button[type=submit]{
         }
         s{
           color: $color-hot;
+          white-space: nowrap;
+          font-size: .85em;
         }
       }
       .short-desc{
@@ -410,6 +435,10 @@ button[type=submit]{
         &[type=submit]:hover{
           background-color: #e3f2fd!important;
         }
+        &.disabled{
+          background-color: #ddd;
+          color: #495057!important;
+        }
       }
     }
   }
@@ -417,11 +446,11 @@ button[type=submit]{
 
   .primary-sidebar {
     .sidebar-widget {
-      padding: 20px;
+      padding: 20px 15px;
       .section-title{
         margin: 0 0 15px;
         padding: 0 0 15px;
-        font-size: 20px;        
+        font-size: 16px;        
       }
       ul{
         li{
@@ -432,7 +461,7 @@ button[type=submit]{
           display: block;
           width: 100%;
           a{
-            font-size: 13px;
+            font-size: 12px;
             border: 1px solid #f2f3f4;
             display: block;
             border-radius: 5px;
@@ -455,4 +484,35 @@ button[type=submit]{
 .detail-info .product-price .save-price{
   color: white;
   background-color: $color-hot;
+}
+
+
+
+.aa-Autocomplete, .aa-DetachedFormContainer, .aa-Panel{
+  width: 100%;
+}
+.aa-Form{
+  box-shadow: none!important;
+  border: 1px solid #ccc;
+  .aa-Input{
+    padding-left: 20px;
+  }
+}
+.aa-InputWrapper{
+  &:focus-within,
+  &:focus{
+    box-shadow: none;
+    border: 0!important;
+  }
+}
+.header-style-1{
+  .search-style-2{
+    form{
+      // border: 0;
+      input{
+        border: 0;
+        margin: 0;
+      }
+    }
+  }
 }

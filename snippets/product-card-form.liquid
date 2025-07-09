@@ -31,14 +31,14 @@
       </select>
     {% endif %}
     <button
-      class="btn btn-atc btn-sm {{ btn_color }}"
+      class="btn btn-atc btn-sm {{ btn_color }}  {% if product.available == false %} disabled{% endif %} "
       type="submit"
       name="add"
       {% unless product.available %}disabled{% endunless %}>
       {% if product.available %}
         {{ 'product.add_to_cart' | t }}
       {% else %}
-        {{ 'product.sold_out' | t }}
+        {% comment %} {{ 'product.sold_out' | t }} {% endcomment %} Agotado
       {% endif %}
     </button>
   {% endform %}

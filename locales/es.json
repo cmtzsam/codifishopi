@@ -1,0 +1,81 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "general": {
+    "accessibility": {
+      "cart_items": "Artículos en el carrito",
+      "scroll_down": "Desplazarse hacia abajo",
+      "menu": "Menú",
+      "wishlist": "Lista de deseos",
+      "slide_no": "Diapositiva {{ number }}"
+    },
+    "blog": {
+      "count_articles": {
+        "one": "{{ count }} artículo",
+        "other": "{{ count }} artículos"
+      }
+    },
+    "contact_form": {
+      "email": "Correo electrónico",
+      "phone": "Teléfono"
+    },
+    "search": {
+      "empty_html": "<p>Comienza a escribir para ver los resultados.</p>",
+      "articles": "Artículos del blog",
+      "results": {
+        "one": "{{ count }} resultado",
+        "other": "{{ count }} resultados"
+      },
+      "search_for": "Búsqueda para \" {{ terms }} \"",
+      "search_page": {
+        "title_search_performed": "Resultado de la búsqueda",
+        "no_results": "No se encontraron resultados para “ {{ terms }} ”. Revisa la ortografía o usa una palabra o frase diferente.",
+        "results_with_count_and_term": {
+          "one": "{{ count }} resultado para “ {{ terms }} ”",
+          "other": "{{ count }} resultados para “ {{ terms }} ”"
+        },
+        "count_products": {
+          "one": "{{ count }} producto",
+          "other": "{{ count }} productos"
+        }
+      }
+    },
+    "404_page": {
+      "subtext": "La página que buscando no existe"
+    }
+  },
+  "collection": {
+    "empty_html": "¡No encontramos productos que coincidan! <a href=\"/collections/all\">Ver todos »</a>",
+    "count_products": {
+      "one": "{{ count }} producto",
+      "other": "{{ count }} productos"
+    },
+    "filters": {
+      "view_results": {
+        "one": "Ver {{ count }} producto",
+        "other": "Ver {{ count }} productos"
+      }
+    }
+  },
+  "product": {
+    "sale_price": "Precio de oferta",
+    "stock_indicator": {
+      "low_stock_html": {
+        "one": "¡Solo queda <b>{{ count }} artículo</b> en stock!",
+        "other": "¡Solo quedan <b>{{ count }} artículos</b> en stock!"
+      },
+      "normal_stock_html": "Actualmente hay <b>{{ count }} artículos</b> en stock.",
+      "untracked_stock": "Actualmente, este artículo tiene stock."
+    }
+  },
+  "cart": {
+    "subtotal": "Total parcial"
+  }
+}

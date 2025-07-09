@@ -8,11 +8,11 @@
   {% render 'product-card' product: product  %}
 {% endcomment %}
 
-<div class="product-cart-wrap hover-up customCard">
+<div class="product-cart-wrap hover-up customCard{% unless product.available %} soldout{% endunless %}">
   <div class="product-img-action-wrap">
     <div class="product-img ">
       <a href="{{ product.url | within: collection }}" tabindex="0">
-        <img class="default-img" src="{{ product.featured_image | image_url: width: 260 }}" alt="{{ product.title | escape }}" width="260" height="260" />
+        <img class="default-img" src="{{ product.featured_image | image_url: width: 260 }}" alt="{{ product.title | escape }}" width="260" height="260" style="height: auto" />
         {% comment %}
         <img class="default-img" src="{{ product.featured_image | image_url: width: 260 }}" alt="{{ product.title | escape }}" />
         {% if product.images.size > 1 %}
@@ -25,7 +25,7 @@
     </div>
     <div class="product-badges product-badges-position product-badges-mrg">
       {% if product.available == false %}
-        <span class="product-sold-out-badge badge">{{ 'product.sold_out' | t }}</span>
+        <span class="product-sold-out-badge badge">{% comment %} {{ 'product.sold_out' | t }} {% endcomment %} Agotado</span>
       {% elsif product.compare_at_price > product.price %}
         <span class="product-sale-badge badge">
           {% if product.compare_at_price > 0 %}
@@ -48,15 +48,19 @@
   </div>
   <div class="product-content-wrap pt-25 ">
     <div class="customCard--collectionsList">
-      {% assign filtered_collections = product.collections | reject: "title", "Pokémon" | reject: "title", "Pokemon" %}
-      {% assign collections_count = filtered_collections.size %}
-      {% for collection in filtered_collections %}
-        <a href="{{ collection.url }}">
-          {{ collection.title }}
-        </a>
-        {% unless forloop.last or collections_count == 1 %} <span style="opacity: 0.5">&nbsp;-&nbsp;</span> {% endunless %}
+      {% assign exclude_list = "Ofertas,Booster Box,Build and battle,Premium Collection,Special Collection,Blister,Booster bundle,Tin,Elite trainer box,Sleeved Booster,expansion,Producto Sellado,carta suelta,accesorios,Scarlet and Violet expansion" | split: "," %}
+      {% assign shown_count = 0 %}
+      {% for collection in product.collections %}
+        {% assign title = collection.title %}
+        {% unless title == "Pokémon" or title == "Pokemon" or exclude_list contains title %}
+          {% if shown_count < 2 %}
+            {% if shown_count > 0 %}<span style="opacity: 0.5">&nbsp;-&nbsp;</span>{% endif %}
+            <a href="{{ collection.url }}">{{ title }}</a>
+            {% assign shown_count = shown_count | plus: 1 %}
+          {% endif %}
+        {% endunless %}
       {% endfor %}
-    </div>       
+    </div>   
     <a href="{{ product.url | within: collection }}" tabindex="0" class="font-xl d-block titleProd">
       {{ product.title | truncate: 33 }}
     </a> 

@@ -4,19 +4,21 @@
           <div class="w-100 mw-50">
               <div class="header-info">
                   <ul>
-                      <li><a href="shop-order.html">Blog</a></li>
-                      <li><a href="shop-order.html">Contacto</a></li>
-                      <li><a href="shop-order.html">Preguntas Frecuentes</a></li>
-                      <li><a href="shop-order.html">Facturación</a></li>
+                      <li><a href="/blogs/noticias">Blog</a></li>
+                      <li><a href="/pages/contact">Contacto</a></li>
+                      {% comment %} <li><a href="/pages/faqs">Preguntas Frecuentes</a></li> {% endcomment %}
+                      <li><a href="/pages/facturacion">Facturación</a></li>
                   </ul>
               </div>
           </div>
           <div class="w-100 mw-50">
               <div class="header-info header-info-right">
                   <ul>
-                      <li>
-                        ¿Necesitas ayuda?: 
-                        <a href="#!" class="text-brand fw-bold">&nbsp; <u>+52 812 3250 803</u></a>
+                      <li> 
+                        <a href="#!" class="text-brand d-flex align-items-center">
+                            <img src="{{ 'whatsapp-icon.svg' | asset_url }}" alt="WhatsApp" style="width: 20px; height: 20px; vertical-align: middle; display: block; margin-right: 5px;" width="20" height="20" />
+                            ¿Dudas? ¡Escríbenos por WhatsApp!
+                        </a>
                     </li>
                   </ul>
               </div>

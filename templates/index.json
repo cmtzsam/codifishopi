@@ -23,17 +23,17 @@
         "text_color": "text-body",
         "border_top_width": 0,
         "border_bottom_width": 0,
-        "border_color": "border-primary",
-        "border_opacity": 100,
+        "border_color": "border-white",
+        "border_opacity": 0,
         "container_max_width": "",
         "products": [],
-        "collection": "destined-rivals",
-        "limit": 8,
+        "collection": "booster-box",
+        "limit": 11,
         "recommended_mode": true,
         "recommended_mode_intent": "related",
-        "header_title": "Featured Products",
+        "header_title": "Productos destacados",
         "header_title_font_size": "h3",
-        "header_description": "<p>Add on optional description for this section</p>",
+        "header_description": "",
         "header_description_font_size": "fs-md",
         "slider_speed": 300,
         "slider_navigation": true,
@@ -49,31 +49,150 @@
         "pb": 11
       }
     },
-    "richtext_4miPYL": {
-      "type": "richtext",
-      "disabled": true,
+    "featured_collections_n3Br7m": {
+      "type": "featured-collections",
+      "blocks": {
+        "collection_8gwBFd": {
+          "type": "collection",
+          "settings": {
+            "collection": "destined-rivals",
+            "img": "{{ block.settings.collection.image }}",
+            "title": "{{ block.settings.collection.title }}"
+          }
+        },
+        "collection_cGtd8j": {
+          "type": "collection",
+          "settings": {
+            "collection": "journey-together",
+            "img": "{{ block.settings.collection.image }}",
+            "title": "{{ block.settings.collection.title }}"
+          }
+        },
+        "collection_fGkedL": {
+          "type": "collection",
+          "settings": {
+            "collection": "prismatic-evolutions",
+            "img": "{{ block.settings.collection.image }}",
+            "title": "{{ block.settings.collection.title }}"
+          }
+        }
+      },
+      "block_order": [
+        "collection_8gwBFd",
+        "collection_cGtd8j",
+        "collection_fGkedL"
+      ],
       "settings": {
-        "bg_color": "bg-primary",
-        "bg_opacity": 5,
+        "bg_color": "bg-body",
+        "bg_opacity": 100,
         "bg_gradient": "",
         "text_color": "text-body",
         "border_top_width": 1,
-        "border_bottom_width": 1,
-        "border_color": "border-primary",
+        "border_bottom_width": 0,
+        "border_color": "border-white",
+        "border_opacity": 10,
+        "container_max_width": "",
+        "header_title": "Últimos set lanzados",
+        "header_title_font_size": "h3",
+        "header_description": "",
+        "header_description_font_size": "",
+        "slider_speed": 300,
+        "slider_navigation": true,
+        "slider_pagination": true,
+        "slider_pagination_type": "bullets",
+        "slider_scrollbar": true,
+        "slider_partial_slides_mobile": false,
+        "slider_autoplay": 0,
+        "collection_card_text_align": "text-center",
+        "collection_card_img_orientation": "ratio-16x9",
+        "collection_card_img_border": "img-thumbnail",
+        "collection_card_show_title": true,
+        "collection_card_title_font_size": "fs-md",
+        "collection_card_title_position": "collection-card-title-normal",
+        "collection_card_show_product_count": true,
+        "breakpoint_mobile": 1,
+        "breakpoint_tablet": 2,
+        "breakpoint_desktop": 3,
+        "pt": 11,
+        "pb": 11
+      }
+    },
+    "faq_7TT7z4": {
+      "type": "faq",
+      "blocks": {
+        "item_AgKJ3m": {
+          "type": "item",
+          "settings": {
+            "title": "Where do you ship?",
+            "description": "<p>We ship all around the world... Please provide here you own shipping information, including times, prices, options etc.</p>"
+          }
+        },
+        "item_EemRD3": {
+          "type": "item",
+          "settings": {
+            "title": "How long will it take to receive my order",
+            "description": "<p>This depends on whether it is an International or a Domestic order. All orders within the U.S. are considered domestic orders and they are shipped and delivered within 2-5 business days. Please see International Orders for more details.</p>"
+          }
+        },
+        "item_jyLYkB": {
+          "type": "item",
+          "settings": {
+            "title": "What payment methods do you support?",
+            "description": "<p>We accept PayPal, Visa, MasterCard, Discover, and American Express but feel free to contact us for other payment options.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "item_AgKJ3m",
+        "item_EemRD3",
+        "item_jyLYkB"
+      ],
+      "custom_css": [
+        "h2 {padding: 20px 0 40px;}"
+      ],
+      "settings": {
+        "bg_color": "bg-body",
+        "bg_opacity": 100,
+        "bg_gradient": "",
+        "text_color": "text-body",
+        "border_top_width": 0,
+        "border_bottom_width": 0,
+        "border_color": "border-body",
+        "border_opacity": 100,
+        "container_max_width": "",
+        "open_first_item": true,
+        "header_title": "Preguntas frecuentes",
+        "header_title_font_size": "h2",
+        "header_description": "",
+        "header_description_font_size": "fs-md",
+        "pt": 0,
+        "pb": 11
+      }
+    },
+    "richtext_4miPYL": {
+      "type": "richtext",
+      "settings": {
+        "bg_color": "bg-white",
+        "bg_opacity": 5,
+        "bg_gradient": "",
+        "text_color": "text-body",
+        "border_top_width": 0,
+        "border_bottom_width": 0,
+        "border_color": "border-body",
         "border_opacity": 100,
         "container_max_width": "900",
         "text_align": "text-center",
-        "title": "Richtext",
+        "title": "",
         "title_font_size": "h3",
-        "description": "<p>Add on optional description for this section</p>",
+        "description": "",
         "description_font_size": "fs-md",
-        "btn_primary_text": "Primary button",
-        "btn_primary_url": "",
+        "btn_primary_text": "Ver más preguntas",
+        "btn_primary_url": "shopify://pages/faqs",
         "btn_primary_color": "btn-primary",
-        "btn_secondary_text": "Secondary button",
+        "btn_secondary_text": "",
         "btn_secondary_url": "",
-        "btn_secondary_color": "btn-secondary",
-        "pt": 12,
+        "btn_secondary_color": "btn-outline-white",
+        "pt": 0,
         "pb": 12
       }
     },
@@ -101,96 +220,6 @@
         "btn_secondary_text": "Secondary button",
         "btn_secondary_url": "",
         "btn_secondary_color": "btn-light-white",
-        "pt": 11,
-        "pb": 11
-      }
-    },
-    "featured_collections_n3Br7m": {
-      "type": "featured-collections",
-      "blocks": {
-        "collection_rznnLq": {
-          "type": "collection",
-          "settings": {
-            "collection": "men",
-            "title": ""
-          }
-        },
-        "collection_KdHXk9": {
-          "type": "collection",
-          "settings": {
-            "collection": "women",
-            "title": ""
-          }
-        },
-        "collection_b7ELCB": {
-          "type": "collection",
-          "settings": {
-            "collection": "children",
-            "title": ""
-          }
-        },
-        "collection_XRMXNt": {
-          "type": "collection",
-          "settings": {
-            "collection": "babies",
-            "title": ""
-          }
-        },
-        "collection_fQ9QDf": {
-          "type": "collection",
-          "settings": {
-            "collection": "latest",
-            "title": ""
-          }
-        },
-        "collection_kRQqkR": {
-          "type": "collection",
-          "settings": {
-            "collection": "sale",
-            "title": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_rznnLq",
-        "collection_KdHXk9",
-        "collection_b7ELCB",
-        "collection_XRMXNt",
-        "collection_fQ9QDf",
-        "collection_kRQqkR"
-      ],
-      "disabled": true,
-      "settings": {
-        "bg_color": "bg-body",
-        "bg_opacity": 100,
-        "bg_gradient": "",
-        "text_color": "text-body",
-        "border_top_width": 1,
-        "border_bottom_width": 0,
-        "border_color": "border-body",
-        "border_opacity": 10,
-        "container_max_width": "",
-        "header_title": "Featured Collections",
-        "header_title_font_size": "h3",
-        "header_description": "<p>Add on optional description for this section</p>",
-        "header_description_font_size": "",
-        "slider_speed": 300,
-        "slider_navigation": true,
-        "slider_pagination": true,
-        "slider_pagination_type": "bullets",
-        "slider_scrollbar": true,
-        "slider_partial_slides_mobile": false,
-        "slider_autoplay": 0,
-        "collection_card_text_align": "text-center",
-        "collection_card_img_orientation": "ratio-16x9",
-        "collection_card_img_border": "img-thumbnail",
-        "collection_card_show_title": true,
-        "collection_card_title_font_size": "fs-md",
-        "collection_card_title_position": "collection-card-title-normal",
-        "collection_card_show_product_count": true,
-        "breakpoint_mobile": 1,
-        "breakpoint_tablet": 2,
-        "breakpoint_desktop": 3,
         "pt": 11,
         "pb": 11
       }
@@ -223,8 +252,8 @@
             "border_color": "border-primary",
             "border_opacity": 10,
             "media_align_desktop": "",
-            "media_border": "img-thumbnail",
-            "img_orientation": "ratio-9x16",
+            "media_border": "",
+            "img_orientation": "adapt",
             "video_ratio": "adapt",
             "video_autoplay": true,
             "video_loop": true,
@@ -390,80 +419,6 @@
         "pb": 10
       }
     },
-    "faq_7TT7z4": {
-      "type": "faq",
-      "blocks": {
-        "item_AgKJ3m": {
-          "type": "item",
-          "settings": {
-            "title": "Where do you ship?",
-            "description": "<p>We ship all around the world... Please provide here you own shipping information, including times, prices, options etc.</p>"
-          }
-        },
-        "item_EemRD3": {
-          "type": "item",
-          "settings": {
-            "title": "How long will it take to receive my order",
-            "description": "<p>This depends on whether it is an International or a Domestic order. All orders within the U.S. are considered domestic orders and they are shipped and delivered within 2-5 business days. Please see International Orders for more details.</p>"
-          }
-        },
-        "item_jyLYkB": {
-          "type": "item",
-          "settings": {
-            "title": "What payment methods do you support?",
-            "description": "<p>We accept PayPal, Visa, MasterCard, Discover, and American Express but feel free to contact us for other payment options.</p>"
-          }
-        },
-        "item_pHCJRG": {
-          "type": "item",
-          "settings": {
-            "title": "How can I track my order?",
-            "description": "<p>We will send tracking information to the e-mail address associated with your order once the item has shipped. If you have not received your tracking information and it has been over 2 business day, please contact us at (012) 123 - 4567</p>"
-          }
-        },
-        "item_kWLWrb": {
-          "type": "item",
-          "settings": {
-            "title": "Can I order as a gift for someone else?",
-            "description": "<p>When ordering as a gift for someone, be sure to enter in your email address to receive all summary information but enter in the recipient’s name and shipping information. We will be sure to keep all prices and receipts out of the package.</p>"
-          }
-        },
-        "item_dizKmG": {
-          "type": "item",
-          "settings": {
-            "title": "How can I get a refund for my order?",
-            "description": "<p>If for any reason you are not completely satisfied with your purchase, within 30 days of placing your order, we will refund you for your purchase with no questions asked.</p>"
-          }
-        }
-      },
-      "block_order": [
-        "item_AgKJ3m",
-        "item_EemRD3",
-        "item_jyLYkB",
-        "item_pHCJRG",
-        "item_kWLWrb",
-        "item_dizKmG"
-      ],
-      "disabled": true,
-      "settings": {
-        "bg_color": "bg-body",
-        "bg_opacity": 100,
-        "bg_gradient": "",
-        "text_color": "text-body",
-        "border_top_width": 0,
-        "border_bottom_width": 0,
-        "border_color": "border-body",
-        "border_opacity": 100,
-        "container_max_width": "",
-        "open_first_item": true,
-        "header_title": "FAQs",
-        "header_title_font_size": "h2",
-        "header_description": "<p>Add on optional description for this section</p>",
-        "header_description_font_size": "fs-md",
-        "pt": 2,
-        "pb": 11
-      }
-    },
     "testimonials_eFtnyC": {
       "type": "testimonials",
       "blocks": {
@@ -583,6 +538,7 @@
       "block_order": [
         "article_c8jxmF"
       ],
+      "disabled": true,
       "settings": {
         "bg_color": "bg-body",
         "bg_opacity": 100,
@@ -637,14 +593,14 @@
   "order": [
     "hero_two_parts_tQC4Q6",
     "featured_products_nXJKQn",
+    "featured_collections_n3Br7m",
+    "faq_7TT7z4",
     "richtext_4miPYL",
     "richtext_AtYwxr",
-    "featured_collections_n3Br7m",
     "separator_kfq8kz",
     "media_with_text_xTY8gi",
     "card_slider_BFzjjF",
     "html_Y7Cp8x",
-    "faq_7TT7z4",
     "testimonials_eFtnyC",
     "blog_slider_UUweWT",
     "separator_pMbxtB"
